@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sky View | GNSS Toolkit</title>
+
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/pages/sky-view.css">
+  <link rel="stylesheet" href="../assets/css/rx-log.css">
+  <script src="../assets/js/core/rx-logger.js"></script>
+
+</head>
+
+<body>
+
+  <div class="app-shell">
+
+    <!-- =========================================================
+         SIDEBAR
+    ========================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+      <div class="sidebar-brand">
+
+        <div class="brand-mark">
+          GNSS
+        </div>
+
+        <div>
+          <strong>GNSS Toolkit</strong>
+          <small>Performance Monitor</small>
+        </div>
+
+      </div>
+
+      <nav class="sidebar-nav">
+
+        <a class="nav-item" href="../index.html">
+          <span>⌂</span>
+          Home
+        </a>
+
+        <a class="nav-item" href="configuration.html">
+          <span>⚙</span>
+          Configuration Setting
+        </a>
+
+        <a class="nav-item" href="position.html">
+          <span>◎</span>
+          Position Window
+        </a>
+
+        <a class="nav-item active" href="sky-view.html">
+          <span>◉</span>
+          Sky View
+        </a>
+
+        <a class="nav-item" href="dop.html">
+          <span>▥</span>
+          Dilution of Precision
+        </a>
+
+        <a class="nav-item" href="plan-view.html">
+          <span>⌖</span>
+          Plan View
+        </a>
+
+        <a class="nav-item" href="signal-tracking.html">
+          <span>⌁</span>
+          Signal Tracking
+        </a>
+
+        <a class="nav-item" href="integrity.html">
+          <span>◫</span>
+          Integrity Graphs
+        </a>
+
+        <a class="nav-item" href="aviation.html">
+          <span>✈</span>
+          Aviation Graphs
+        </a>
+
+      </nav>
+
+    </aside>
+
+
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
+
+    <main class="main-content">
+
+      <!-- TOPBAR -->
+
+      <header class="topbar">
+
+        <button
+          class="menu-btn"
+          onclick="toggleSidebar()">
+          ☰
+        </button>
+
+        <div>
+
+          <div class="breadcrumb">
+            GPMS / Sky View
+          </div>
+
+          <h1>
+            Sky View
+          </h1>
+
+        </div>
+
+      </header>
+
+
+      <!-- =====================================================
+           SKY VIEW PAGE
+      ====================================================== -->
+
+      <div class="sky-view-wrapper">
+
+        <div class="sky-view-container">
+
+          <!-- HEADING -->
+
+          <div class="sky-view-heading">
+
+            <h3>
+              Live satellite visibility from the GSV data
+            </h3>
+
+          </div>
+
+
+          <!-- DATA PANEL -->
+
+          <div class="panel">
+
+            <!-- SELECTED FILE -->
+
+            <div class="data-source">
+
+              <div>
+
+                <div class="source-label">
+                  SELECTED GSV FILE
+                </div>
+
+                <div
+                  class="source-file"
+                  id="fileName">
+                  No GSV file selected
+                </div>
+
+              </div>
+
+              <div class="source-status">
+
+                <span class="status-dot"></span>
+
+                <span id="connectionStatus">
+                  Waiting for Playback
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div
+              class="status-box"
+              id="statusBox">
+
+              Select a GSV file from Playback Configuration
+              to display the satellite sky view.
+
+            </div>
+
+
+            <!-- =================================================
+                 STATISTICS
+            ================================================== -->
+
+            <div class="stats">
+
+              <div class="stat-card">
+
+                <strong id="totalSat">
+                  0
+                </strong>
+
+                <span>
+                  Satellites
+                </span>
+
+              </div>
+
+
+              <div class="stat-card">
+
+                <strong id="gpsCount">
+                  0
+                </strong>
+
+                <span>
+                  GPS
+                </span>
+
+              </div>
+
+
+              <div class="stat-card">
+
+                <strong id="multiCount">
+                  0
+                </strong>
+
+                <span>
+                  Other constellations
+                </span>
+
+              </div>
+
+
+              <div class="stat-card">
+
+                <strong id="avgSnr">
+                  —
+                </strong>
+
+                <span>
+                  Average SNR
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 POLAR SKY PLOT
+            ================================================== -->
+
+            <div class="sky-plot-wrapper">
+
+              <div class="sky-plot-menubar">
+
+                <span>
+                  GNSS Polar Sky Plot
+                </span>
+
+                <span>
+                  North = 0° • East = 90° • South = 180° • West = 270°
+                </span>
+
+              </div>
+
+
+              <!-- LEGEND -->
+
+              <div class="sky-plot-legend">
+
+                <span class="legend-item">
+                  <span class="dot dot-gps"></span>
+                  GPS
+                </span>
+
+                <span class="legend-item">
+                  <span class="dot dot-glonass"></span>
+                  GLONASS
+                </span>
+
+                <span class="legend-item">
+                  <span class="dot dot-galileo"></span>
+                  Galileo
+                </span>
+
+                <span class="legend-item">
+                  <span class="dot dot-beidou"></span>
+                  BeiDou
+                </span>
+
+                <span class="legend-item">
+                  <span class="dot dot-navic"></span>
+                  NavIC
+                </span>
+
+              </div>
+
+
+              <!-- GRAPH -->
+
+              <div class="sky-plot-canvas">
+
+                <svg
+                  id="skyPlot"
+                  viewBox="0 0 600 600"
+                  aria-label="GNSS satellite polar sky plot">
+                </svg>
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SATELLITE TABLE
+            ================================================== -->
+
+            <div class="sat-table-wrap">
+
+              <table class="sat-table">
+
+                <thead>
+
+                  <tr>
+
+                    <th>
+                      Constellation
+                    </th>
+
+                    <th>
+                      PRN
+                    </th>
+
+                    <th>
+                      Elevation
+                    </th>
+
+                    <th>
+                      Azimuth
+                    </th>
+
+                    <th>
+                      SNR
+                    </th>
+
+                  </tr>
+
+                </thead>
+
+                <tbody id="satelliteTable">
+
+                  <tr>
+
+                    <td colspan="5">
+                      No Playback GSV data loaded.
+                    </td>
+
+                  </tr>
+
+                </tbody>
+
+              </table>
+
+            </div>
+
+          </div>
+
+
+          <!-- =====================================================
+               BOTTOM NAVIGATION
+          ====================================================== -->
+
+          <div class="bottom-navigation">
+
+            <a
+              class="bottom-nav-btn"
+              href="../index.html">
+
+              Home
+
+            </a>
+
+
+            <button
+              class="bottom-nav-btn"
+              onclick="history.back()">
+
+              Back
+
+            </button>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <!-- =======================================================
+           FOOTER
+      ======================================================== -->
+
+      <footer class="app-footer" id="appFooter">
+
+        <button type="button" class="rx-toggle" id="rxToggle"
+                aria-controls="rxPanel" aria-expanded="false"
+                title="Open Rx • Logging • Error console (Alt+L)">
+          <span class="rx-led" aria-hidden="true"></span>
+          <span class="rx-toggle-label">Rx • Logging • Error</span>
+          <span class="rx-counters" aria-hidden="true">
+            <span class="rx-chip rx-chip-rx">RX <b data-rx-count="rx">0</b></span>
+            <span class="rx-chip rx-chip-log">LOG <b data-rx-count="log">0</b></span>
+            <span class="rx-chip rx-chip-warn">WARN <b data-rx-count="warn">0</b></span>
+            <span class="rx-chip rx-chip-err">ERR <b data-rx-count="err">0</b></span>
+          </span>
+          <span class="rx-caret" aria-hidden="true">&#9650;</span>
+        </button>
+
+        <span class="app-footer-copy">Copyright @SUP</span>
+
+        <span class="app-footer-name">GPMS Performance Monitoring System</span>
+
+      </footer>
+
+    </main>
+
+  </div>
+
+
+  <!-- =========================================================
+       MAIN APP JAVASCRIPT
+  ========================================================== -->
+
+  <script src="../assets/js/core/app.js"></script>
+
+
+  <script src="../assets/js/pages/sky-view.js"></script>
+
+</body>
+
+</html>

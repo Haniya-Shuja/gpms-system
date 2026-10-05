@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>GPMS Performance Monitoring System</title>
+
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/rx-log.css">
+  <script src="assets/js/core/rx-logger.js"></script>
+</head>
+
+<body>
+
+<div class="app-shell">
+
+  <!-- =========================================
+       SIDEBAR
+       ========================================= -->
+
+  <aside class="sidebar" id="sidebar">
+
+   <div class="sidebar-brand">
+
+            <div class="brand-mark">
+                GPMS
+            </div>
+
+            <div>
+                <strong>GPMS </strong>
+                <small>Performance Monitor</small>
+            </div>
+
+        </div>
+
+    <!-- SIDEBAR NAVIGATION -->
+    <nav class="sidebar-nav">
+
+      <a class="nav-item active" href="index.html">
+        <span>⌂</span>
+        <label>Home</label>
+      </a>
+
+      <a class="nav-item" href="pages/configuration.html">
+        <span>⚙</span>
+        <label>Configuration Setting</label>
+      </a>
+
+      <a class="nav-item" href="pages/position.html">
+        <span>◎</span>
+        <label>Position Window</label>
+      </a>
+
+      <a class="nav-item" href="pages/sky-view.html">
+        <span>◉</span>
+        <label>Sky View</label>
+      </a>
+
+      <a class="nav-item" href="pages/dop.html">
+        <span>▥</span>
+        <label>Dilution of Precision</label>
+      </a>
+
+      <a class="nav-item" href="pages/plan-view.html">
+        <span>⌖</span>
+        <label>Plan View</label>
+      </a>
+
+      <a class="nav-item" href="pages/signal-tracking.html">
+        <span>⌁</span>
+        <label>Signal Tracking</label>
+      </a>
+
+      <a class="nav-item" href="pages/integrity.html">
+        <span>◫</span>
+        <label>Integrity Graphs</label>
+      </a>
+
+      <a class="nav-item" href="pages/aviation.html">
+        <span>✈</span>
+        <label>Aviation Graphs</label>
+      </a>
+
+    </nav>
+
+
+    <!-- sidebar -->
+    <div class="sidebar-footer">
+
+     
+
+     
+
+    </div>
+
+  </aside>
+
+
+  <!-- =========================================
+       MAIN CONTENT
+       ========================================= -->
+
+  <main class="main-content">
+
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+
+      <button
+        class="menu-btn"
+        onclick="toggleSidebar()"
+        aria-label="Open navigation">
+        ☰
+      </button>
+
+
+      <div class="topbar-title">
+
+        <div class="breadcrumb">
+          GPMS / HOME
+        </div>
+
+        <h1>
+          GNSS Performance Monitoring System
+        </h1>
+
+      </div>
+
+
+  
+
+
+    
+
+    </header>
+
+
+    <!-- =========================================
+         HERO
+         ========================================= -->
+
+    <section class="hero">
+
+      <div class="hero-content">
+<!-- 
+        <span class="eyebrow">
+          SUP • GPMS MONITORING
+        </span> -->
+
+
+        <h2>
+    Performance Monitoring &amp; Analysis
+</h2>
+
+<p>
+    Configure and initialize your GNSS monitoring session to enable comprehensive,
+    multi-constellation telemetry across all active channels. Once data ingestion
+    begins, navigate seamlessly between specialized diagnostic modules to evaluate
+    real-time 3D positioning accuracy, track satellite constellation geometry,
+    assess dilution of precision (DoP) parameters, and review carrier-to-noise
+    signal tracking metrics. The system continuously logs raw receiver observables
+    and validates operational boundaries against aviation performance, protection
+    limits, and autonomous integrity monitoring standards.
+</p>
+
+
+        <a
+          class="primary-btn"
+          href="pages/configuration.html">
+
+          Start Configuration 
+
+        </a>
+
+      </div>
+
+
+      <!-- HERO STATUS -->
+      <!-- <div class="hero-status">
+
+        <span class="status-dot"></span>
+
+        <small>
+          MONITORING WORKSPACE
+        </small>
+
+        <strong>
+          Ready for configuration
+        </strong>
+
+        <span>
+          System available
+        </span>
+
+      </div> -->
+
+  
+ </section>
+
+
+
+    <!-- =========================================
+         MAIN PAGE FOOTER
+         THIS IS SEPARATE FROM SIDEBAR
+         ========================================= -->
+
+    <footer class="app-footer" id="appFooter">
+
+        <button type="button" class="rx-toggle" id="rxToggle"
+                aria-controls="rxPanel" aria-expanded="false"
+                title="Open Rx • Logging • Error console (Alt+L)">
+          <span class="rx-led" aria-hidden="true"></span>
+          <span class="rx-toggle-label">Rx • Logging • Error</span>
+          <span class="rx-counters" aria-hidden="true">
+            <span class="rx-chip rx-chip-rx">RX <b data-rx-count="rx">0</b></span>
+            <span class="rx-chip rx-chip-log">LOG <b data-rx-count="log">0</b></span>
+            <span class="rx-chip rx-chip-warn">WARN <b data-rx-count="warn">0</b></span>
+            <span class="rx-chip rx-chip-err">ERR <b data-rx-count="err">0</b></span>
+          </span>
+          <span class="rx-caret" aria-hidden="true">&#9650;</span>
+        </button>
+
+        <span class="app-footer-copy">Copyright @SUP</span>
+
+        <span class="app-footer-name">GPMS Performance Monitoring System</span>
+
+      </footer>
+
+
+  </main>
+
+
+
+<!-- JAVASCRIPT -->
+<script src="assets/js/core/app.js"></script>
+
+</body>
+</html>

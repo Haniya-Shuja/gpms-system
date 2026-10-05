@@ -1,0 +1,545 @@
+/* dop page styles (extracted from inline <style>) */
+
+    /* =========================================================
+       DOP PAGE - PROFESSIONAL CENTERED LAYOUT
+       ========================================================= */
+    .dop-wrapper {
+      width: 100%;
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 10px 20px 25px;
+    }
+
+    .dop-container {
+      width: 100%;
+      background: #ffffff;
+      border: 1px solid #dfe7ec;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 8px 28px rgba(16, 36, 62, 0.08);
+    }
+
+    /* =========================================================
+       PAGE HEADING
+       ========================================================= */
+    .dop-heading {
+      text-align: center;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e5ebef;
+    }
+
+    .dop-heading h2 {
+      margin: 0 0 8px;
+      color: #10243e;
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+
+    .dop-heading p {
+      margin: 0;
+      color: #667789;
+      font-size: 0.95rem;
+    }
+
+    /* =========================================================
+       MAIN GRAPH PANEL
+       ========================================================= */
+    .panel {
+      background: #ffffff;
+      border: 1px solid #dfe7ec;
+      border-radius: 12px;
+      padding: 22px 24px;
+    }
+
+    .panel h3 {
+      margin: 0 0 7px;
+      color: #10243e;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .panel > p {
+      margin: 0 0 20px;
+      color: #667789;
+      font-size: 0.9rem;
+    }
+
+    /* =========================================================
+       GRAPH GRID - SIDE BY SIDE
+       ========================================================= */
+    .graphs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      width: 100%;
+    }
+
+    .graph-box {
+      background: #ffffff;
+      border: 1px solid #e1e8ed;
+      border-radius: 12px;
+      padding: 18px;
+      min-width: 0;
+      box-shadow: 0 4px 14px rgba(16, 36, 62, 0.04);
+    }
+
+    .graph-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .graph-title h4 {
+      margin: 0;
+      color: #10243e;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .graph-badge {
+      padding: 5px 9px;
+      border-radius: 12px;
+      background: #eef8f6;
+      color: #0d9488;
+      font-size: 0.7rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* =========================================================
+       BAR GRAPH (WHITE BACKGROUND)
+       ========================================================= */
+    .dop-chart {
+      width: 100%;
+      height: 330px;
+      background: #ffffff;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      gap: 12px;
+      padding: 20px 10px 5px;
+      border-bottom: 2px solid #cbd5e1;
+      position: relative;
+    }
+
+    .dop-chart::before,
+    .dop-chart::after {
+      content: "";
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      border-top: 1px dashed #e2e8f0;
+      pointer-events: none;
+    }
+
+    .dop-chart::before {
+      top: 28%;
+    }
+
+    .dop-chart::after {
+      top: 58%;
+    }
+
+    .bar-wrap {
+      height: 100%;
+      flex: 1;
+      max-width: 75px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      position: relative;
+      z-index: 1;
+    }
+
+    .bar-wrap > span {
+      color: #475569;
+      font-size: 0.76rem;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    .bar {
+      width: 48px;
+      max-width: 75%;
+      min-height: 20px;
+      border-radius: 7px 7px 2px 2px;
+      background: linear-gradient(to top, #0d9488, #5fb8ae);
+      box-shadow: 0 5px 12px rgba(13, 148, 136, 0.16);
+      transition: height 0.3s ease;
+    }
+
+    .bar-wrap:nth-child(2) .bar {
+      background: linear-gradient(to top, #2563eb, #60a5fa);
+    }
+
+    .bar-wrap:nth-child(3) .bar {
+      background: linear-gradient(to top, #7c3aed, #a78bfa);
+    }
+
+    .bar-wrap:nth-child(4) .bar {
+      background: linear-gradient(to top, #0f766e, #2dd4bf);
+    }
+
+    .bar-wrap:nth-child(5) .bar {
+      background: linear-gradient(to top, #475569, #94a3b8);
+    }
+
+    .bar-wrap small {
+      margin-top: 9px;
+      color: #64748b;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* =========================================================
+       WHITE THEME LINE GRAPH
+       ========================================================= */
+    .line-chart-card {
+      width: 100%;
+    }
+
+    .scichart-container {
+      width: 100%;
+      margin-top: 0;
+      border: 1px solid #dfe7ec;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 4px 14px rgba(16, 36, 62, 0.04);
+    }
+
+    .chart-header-bar {
+      min-height: 42px;
+      padding: 0 12px;
+      display: grid;
+      grid-template-columns: 45px 1fr 45px;
+      align-items: center;
+      gap: 6px;
+      background: #f8fafc;
+      color: #334155;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 10px;
+    }
+
+    .chart-header-bar span:first-child {
+      cursor: pointer;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    .chart-title-text {
+      text-align: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: #1e293b;
+      white-space: nowrap;
+    }
+
+    .chart-header-bar span:last-child {
+      color: #059669;
+      font-size: 9px;
+      text-align: right;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .chart-body {
+      display: flex;
+      width: 100%;
+      height: 330px;
+      min-height: 330px;
+      background: #ffffff;
+    }
+
+    .chart-tools {
+      width: 34px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 0;
+      gap: 8px;
+      background: #f8fafc;
+      border-right: 1px solid #e2e8f0;
+    }
+
+    .chart-tools span {
+      width: 23px;
+      height: 23px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #475569;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 5px;
+      font-size: 11px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .chart-tools span:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .chart-tools span:last-child {
+      margin-top: auto;
+      font-size: 8px;
+    }
+
+    .canvas-wrapper {
+      position: relative;
+      flex: 1;
+      min-width: 0;
+      height: 330px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    #dopLineChart {
+      display: block;
+      width: 100%;
+      height: 330px;
+      background: #ffffff;
+    }
+
+    .chart-legend {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 5;
+      padding: 7px 10px;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      color: #334155;
+      font-size: 8.5px;
+      font-weight: 600;
+      line-height: 1.7;
+      pointer-events: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .legend-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .legend-color-line {
+      width: 15px;
+      height: 2.5px;
+      display: inline-block;
+      border-radius: 2px;
+    }
+
+    /* =========================================================
+       BOTTOM NAVIGATION ROW & BLUE BUTTONS
+       ========================================================= */
+    .bottom-nav-row {
+      width: 100%;
+      max-width: 1150px;
+      margin: 18px auto 28px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    .btn-action-blue {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 9px 20px;
+      background: #1d4ed8;
+      color: #ffffff;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(29, 78, 216, 0.22);
+      transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-action-blue:hover {
+      background: #1e40af;
+      transform: translateY(-1px);
+      box-shadow: 0 5px 14px rgba(29, 78, 216, 0.32);
+    }
+
+    .btn-action-blue:active {
+      transform: translateY(0);
+      background: #172554;
+    }
+
+    /* =========================================================
+       PROFESSIONAL FOOTER
+       ========================================================= */
+    
+
+    
+
+    
+
+    
+
+    
+
+    /* =========================================================
+       RESPONSIVE BREAKPOINTS
+       ========================================================= */
+    @media (max-width: 900px) {
+      .dop-wrapper {
+        padding: 8px 16px 20px;
+      }
+      .dop-container {
+        padding: 22px;
+      }
+      .dop-heading h2 {
+        font-size: 1.55rem;
+      }
+      .graphs-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .graph-box {
+        padding: 14px;
+      }
+      .dop-chart {
+        height: 300px;
+      }
+      .chart-body,
+      .canvas-wrapper,
+      #dopLineChart {
+        height: 300px;
+      }
+      .bar {
+        width: 40px;
+      }
+      .chart-title-text {
+        font-size: 9px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .dop-wrapper {
+        padding: 5px 10px 20px;
+      }
+      .dop-container {
+        padding: 16px;
+        border-radius: 12px;
+      }
+      .dop-heading {
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+      }
+      .dop-heading h2 {
+        font-size: 1.35rem;
+      }
+      .dop-heading p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+      }
+      .panel {
+        padding: 16px 12px;
+      }
+      .graphs-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .graph-box {
+        padding: 14px 10px;
+      }
+      .dop-chart {
+        height: 290px;
+      }
+      .bar {
+        width: 42px;
+      }
+      .chart-body,
+      .canvas-wrapper,
+      #dopLineChart {
+        height: 290px;
+      }
+      .chart-header-bar {
+        grid-template-columns: 38px 1fr 40px;
+      }
+      .chart-title-text {
+        font-size: 8px;
+      }
+      .chart-tools {
+        width: 30px;
+      }
+      .chart-tools span {
+        width: 21px;
+        height: 21px;
+        font-size: 10px;
+      }
+      .bottom-nav-row {
+        justify-content: center;
+        padding: 0 10px;
+        margin: 14px auto 22px;
+      }
+      .btn-action-blue {
+        flex: 1;
+        text-align: center;
+      }
+      
+      
+    }
+
+    @media (max-width: 380px) {
+      .dop-container {
+        padding: 12px;
+      }
+      .panel {
+        padding: 13px 9px;
+      }
+      .graph-title h4 {
+        font-size: 0.84rem;
+      }
+      .graph-badge {
+        font-size: 0.65rem;
+        padding: 4px 7px;
+      }
+      .dop-chart {
+        height: 260px;
+      }
+      .bar {
+        width: 34px;
+      }
+      .bar-wrap > span {
+        font-size: 0.68rem;
+      }
+      .bar-wrap small {
+        font-size: 0.65rem;
+      }
+      .chart-body,
+      .canvas-wrapper,
+      #dopLineChart {
+        height: 260px;
+      }
+      .chart-header-bar {
+        grid-template-columns: 30px 1fr 35px;
+      }
+      .chart-title-text {
+        font-size: 7px;
+      }
+      .chart-legend {
+        top: 7px;
+        left: 7px;
+        padding: 5px 7px;
+        font-size: 6px;
+      }
+    }
+  

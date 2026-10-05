@@ -1,0 +1,109 @@
+/* signal-tracking page styles (extracted from inline <style>) */
+
+        .sg-section {
+            margin-top: 24px;
+        }
+
+        .sg-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .sg-header h3 {
+            margin: 0;
+        }
+
+        .sg-summary {
+            font-size: 13px;
+            opacity: .75;
+        }
+
+        .sg-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .sg-tab {
+            padding: 7px 16px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            background: #ffffff;
+            color: #1f2937;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .sg-tab:hover {
+            background: #f1f5f9;
+        }
+
+        .sg-tab.active {
+            background: #1f2937;
+            border-color: #1f2937;
+            color: #ffffff;
+        }
+
+        .sg-tab:focus-visible {
+            outline: 2px solid #2563eb;
+            outline-offset: 2px;
+        }
+
+        /* WHITE GRAPH BACKGROUND */
+        .sg-chart-box {
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 16px;
+            color: #1f2937;
+        }
+
+        .sg-chart-title {
+            text-align: center;
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 8px;
+            color: #111827;
+        }
+
+        .sg-svg-wrap {
+            overflow-x: auto;
+        }
+
+        .sg-svg-wrap svg {
+            display: block;
+            width: 100%;
+            min-width: 520px;
+            height: auto;
+            background: #ffffff;
+        }
+
+        .sg-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 18px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 13px;
+            color: #1f2937;
+        }
+
+        .sg-legend-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .sg-legend-swatch {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+            display: inline-block;
+        }
+    

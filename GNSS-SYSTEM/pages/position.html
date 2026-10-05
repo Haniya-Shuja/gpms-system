@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Position window</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/pages/position.css">
+  <link rel="stylesheet" href="../assets/css/rx-log.css">
+  <script src="../assets/js/core/rx-logger.js"></script>
+
+</head>
+
+<body>
+  <div class="app-shell">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-mark">GPMS</div>
+        <div>
+          <strong>Gpms</strong>
+          <small>Performance monitor</small>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-item" href="../index.html">
+          <span>⌂</span>Home
+        </a>
+        <a class="nav-item" href="configuration.html">
+          <span>⚙</span>Configuration setting
+        </a>
+        <a class="nav-item active" href="position.html">
+          <span>◎</span>Position window
+        </a>
+        <a class="nav-item" href="sky-view.html">
+          <span>◉</span>Sky view
+        </a>
+        <a class="nav-item" href="dop.html">
+          <span>▥</span>Dilution of precision
+        </a>
+        <a class="nav-item" href="plan-view.html">
+          <span>⌖</span>Plan view
+        </a>
+        <a class="nav-item" href="signal-tracking.html">
+          <span>⌁</span>Signal tracking
+        </a>
+        <a class="nav-item" href="integrity.html">
+          <span>◫</span>Integrity graphs
+        </a>
+        <a class="nav-item" href="aviation.html">
+          <span>✈</span>Aviation graphs
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+
+      <!-- Topbar -->
+      <header class="topbar">
+        <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+        <div>
+          <div class="breadcrumb" style="color:#1e4f8a;">
+            GPMS / Position window
+          </div>
+          <h1>Position window</h1>
+        </div>
+      </header>
+
+      <!-- Page content -->
+      <div class="page-content">
+        <div class="position-wrapper">
+          <div class="position-container">
+
+            <!-- Page heading -->
+            <div class="position-heading">
+              <h3>Monitor GNSS position, altitude, solution status, and epoch timing.</h3>
+            </div>
+
+            <!-- Quick coordinate highlights -->
+            <div class="stats-grid">
+              <div class="stat">
+                <span class="label">Latitude</span>
+                <strong id="disp-lat">24.94605283558</strong>
+              </div>
+
+              <div class="stat">
+                <span class="label">Longitude</span>
+                <strong id="disp-lon">67.13613383441</strong>
+              </div>
+
+              <div class="stat">
+                <span class="label">Height / altitude</span>
+                <strong id="disp-height">49.4106 m</strong>
+              </div>
+
+              <div class="stat">
+                <span class="label">Satellites used</span>
+                <strong id="disp-sats" style="color:#1e4f8a;">21</strong>
+              </div>
+            </div>
+
+            <!-- Position data sections -->
+            <div class="pos-section">
+
+              <!-- Solution status -->
+              <div class="pos-card">
+                <h4>Solution status &amp; satellites</h4>
+                <table class="data-table">
+                  <tbody>
+                    <tr>
+                      <td class="label">Solution status :</td>
+                      <td class="value">Solution computed</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td class="label">Position type :</td>
+                      <td class="value">Single</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td class="label"># of satellites used in solution :</td>
+                      <td class="value highlight-val">21</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Epoch & timing -->
+              <div class="pos-card">
+                <h4>Epoch &amp; timing</h4>
+                <div class="epoch-grid">
+                  <div class="epoch-item">
+                    <span class="label">Starting epoch (UTC)</span>
+                    <strong>1/4/2017 1:00:00 AM</strong>
+                  </div>
+
+                  <div class="epoch-item">
+                    <span class="label">Elapsed time</span>
+                    <strong>0:0:0:0</strong>
+                  </div>
+
+                  <div class="epoch-item">
+                    <span class="label">Current epoch (UTC)</span>
+                    <strong>1/4/2017 1:59:59 AM</strong>
+                  </div>
+
+                  <div class="epoch-item">
+                    <span class="label">Current epoch (Local)</span>
+                    <strong>1/4/2017 6:59:59 AM</strong>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Bottom navigation -->
+            <div class="bottom-navigation">
+              <a class="bottom-nav-btn" href="../index.html">Home</a>
+              <button class="bottom-nav-btn" onclick="history.back()">Back</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="app-footer" id="appFooter">
+
+        <button type="button" class="rx-toggle" id="rxToggle"
+                aria-controls="rxPanel" aria-expanded="false"
+                title="Open Rx • Logging • Error console (Alt+L)">
+          <span class="rx-led" aria-hidden="true"></span>
+          <span class="rx-toggle-label">Rx • Logging • Error</span>
+          <span class="rx-counters" aria-hidden="true">
+            <span class="rx-chip rx-chip-rx">RX <b data-rx-count="rx">0</b></span>
+            <span class="rx-chip rx-chip-log">LOG <b data-rx-count="log">0</b></span>
+            <span class="rx-chip rx-chip-warn">WARN <b data-rx-count="warn">0</b></span>
+            <span class="rx-chip rx-chip-err">ERR <b data-rx-count="err">0</b></span>
+          </span>
+          <span class="rx-caret" aria-hidden="true">&#9650;</span>
+        </button>
+
+        <span class="app-footer-copy">Copyright @SUP</span>
+
+        <span class="app-footer-name">GPMS Performance Monitoring System</span>
+
+      </footer>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/core/app.js"></script>
+</body>
+</html>

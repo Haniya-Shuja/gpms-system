@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan View | GNSS Toolkit</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/pages/plan-view.css">
+  <link rel="stylesheet" href="../assets/css/rx-log.css">
+  <script src="../assets/js/core/rx-logger.js"></script>
+
+</head>
+
+<body>
+<div class="app-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-mark">GNSS</div>
+      <div>
+        <strong>GNSS Toolkit</strong>
+        <small>Performance Monitor</small>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="nav-item" href="../index.html"><span>⌂</span>Home</a>
+      <a class="nav-item" href="configuration.html"><span>⚙</span>Configuration Setting</a>
+      <a class="nav-item" href="position.html"><span>◎</span>Position Window</a>
+      <a class="nav-item" href="sky-view.html"><span>◉</span>Sky View</a>
+      <a class="nav-item" href="dop.html"><span>▥</span>Dilution of Precision</a>
+      <a class="nav-item active" href="plan-view.html"><span>⌖</span>Plan View</a>
+      <a class="nav-item" href="signal-tracking.html"><span>⌁</span>Signal Tracking</a>
+      <a class="nav-item" href="integrity.html"><span>◫</span>Integrity Graphs</a>
+      <a class="nav-item" href="aviation.html"><span>✈</span>Aviation Graphs</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+      <div>
+        <div class="breadcrumb">GPMS / Plan View</div>
+        <h1>Plan View</h1>
+      </div>
+      <!-- <button class="exit-btn" onclick="handleExit()">Exit</button> -->
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <div class="page-content">
+      <div class="plan-view-container">
+
+        <!-- TITLE PANEL -->
+        <div class="plan-heading-card">
+         
+          <h4>Real-time East vs North trajectory and UTC telemetry for North, East, and Height.</h4>
+        </div>
+
+        <!-- 4 GRAPHS GRID (ALL WITH WHITE BACKGROUND) -->
+        <div class="four-graphs-grid">
+
+          <!-- 1. PLAN VIEW (EAST VS NORTH SCATTER) -->
+          <div class="graph-card">
+            <div class="graph-card-header">
+              <h3>Plan View — East vs North</h3>
+              <div class="graph-status">
+                <span class="graph-status-dot"></span> LIVE
+              </div>
+            </div>
+            <div class="chart-sci-bar">
+              <span>View • Help</span>
+              <span>Position Trajectory Scatter</span>
+              <span style="color:#059669;">● Live</span>
+            </div>
+            <div class="chart-body-wrapper">
+              <div class="chart-left-tools">
+                <span title="Zoom Extents">🔍</span>
+                <span title="Zoom In">+</span>
+                <span title="Zoom Out">−</span>
+                <span title="Pan">✥</span>
+                <span title="Settings">⚙</span>
+              </div>
+              <div class="canvas-viewport">
+                <canvas id="planCanvas"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. NORTH VS UTC TIME -->
+          <div class="graph-card">
+            <div class="graph-card-header">
+              <h3>North vs. UTC Time</h3>
+              <div class="graph-status">
+                <span class="graph-status-dot"></span> LIVE
+              </div>
+            </div>
+            <div class="chart-sci-bar">
+              <span>Help</span>
+              <span>North Vs. UTC Time</span>
+              <span style="color:#059669;">● Live</span>
+            </div>
+            <div class="chart-body-wrapper">
+              <div class="chart-left-tools">
+                <span title="Zoom Extents">🔍</span>
+                <span title="Zoom In">+</span>
+                <span title="Zoom Out">−</span>
+                <span title="Pan">✥</span>
+                <span title="Settings">⚙</span>
+              </div>
+              <div class="canvas-viewport">
+                <canvas id="northCanvas"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. EAST VS UTC TIME -->
+          <div class="graph-card">
+            <div class="graph-card-header">
+              <h3>East vs. UTC Time</h3>
+              <div class="graph-status">
+                <span class="graph-status-dot"></span> LIVE
+              </div>
+            </div>
+            <div class="chart-sci-bar">
+              <span>Help</span>
+              <span>East Vs. UTC Time</span>
+              <span style="color:#059669;">● Live</span>
+            </div>
+            <div class="chart-body-wrapper">
+              <div class="chart-left-tools">
+                <span title="Zoom Extents">🔍</span>
+                <span title="Zoom In">+</span>
+                <span title="Zoom Out">−</span>
+                <span title="Pan">✥</span>
+                <span title="Settings">⚙</span>
+              </div>
+              <div class="canvas-viewport">
+                <canvas id="eastCanvas"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. HEIGHT VS UTC TIME -->
+          <div class="graph-card">
+            <div class="graph-card-header">
+              <h3>Height vs. UTC Time</h3>
+              <div class="graph-status">
+                <span class="graph-status-dot"></span> LIVE
+              </div>
+            </div>
+            <div class="chart-sci-bar">
+              <span>Help</span>
+              <span>Height Vs. UTC Time</span>
+              <span style="color:#059669;">● Live</span>
+            </div>
+            <div class="chart-body-wrapper">
+              <div class="chart-left-tools">
+                <span title="Zoom Extents">🔍</span>
+                <span title="Zoom In">+</span>
+                <span title="Zoom Out">−</span>
+                <span title="Pan">✥</span>
+                <span title="Settings">⚙</span>
+              </div>
+              <div class="canvas-viewport">
+                <canvas id="heightCanvas"></canvas>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- BOTTOM NAVIGATION: BLUE HOME & BACK BUTTONS -->
+       <div class="bottom-navigation">
+
+            <a
+              class="bottom-nav-btn"
+              href="../index.html">
+
+              Home
+
+            </a>
+
+
+            <button
+              class="bottom-nav-btn"
+              onclick="history.back()">
+
+              Back
+
+            </button>
+
+          </div>
+
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="app-footer" id="appFooter">
+
+        <button type="button" class="rx-toggle" id="rxToggle"
+                aria-controls="rxPanel" aria-expanded="false"
+                title="Open Rx • Logging • Error console (Alt+L)">
+          <span class="rx-led" aria-hidden="true"></span>
+          <span class="rx-toggle-label">Rx • Logging • Error</span>
+          <span class="rx-counters" aria-hidden="true">
+            <span class="rx-chip rx-chip-rx">RX <b data-rx-count="rx">0</b></span>
+            <span class="rx-chip rx-chip-log">LOG <b data-rx-count="log">0</b></span>
+            <span class="rx-chip rx-chip-warn">WARN <b data-rx-count="warn">0</b></span>
+            <span class="rx-chip rx-chip-err">ERR <b data-rx-count="err">0</b></span>
+          </span>
+          <span class="rx-caret" aria-hidden="true">&#9650;</span>
+        </button>
+
+        <span class="app-footer-copy">Copyright @SUP</span>
+
+        <span class="app-footer-name">GPMS Performance Monitoring System</span>
+
+      </footer>
+
+  </main>
+</div>
+
+<script src="../assets/js/core/app.js"></script>
+<script src="../assets/js/pages/plan-view.js"></script>
+
+</body>
+</html>

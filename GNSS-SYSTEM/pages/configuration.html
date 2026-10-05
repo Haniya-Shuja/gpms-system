@@ -1,0 +1,1291 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Configuration Setting </title>
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/rx-log.css">
+  <script src="../assets/js/core/rx-logger.js"></script>
+
+    
+</head>
+
+
+<body>
+
+<div class="app-shell">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-mark">
+                GPMS
+            </div>
+
+            <div>
+                <strong>GPMS </strong>
+                <small>Performance Monitor</small>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a class="nav-item" href="../index.html">
+                <span>⌂</span>
+                Home
+            </a>
+
+            <a class="nav-item active" href="configuration.html">
+                <span>⚙</span>
+                Configuration Setting
+            </a>
+
+            <a class="nav-item" href="position.html">
+                <span>◎</span>
+                Position Window
+            </a>
+
+            <a class="nav-item" href="sky-view.html">
+                <span>◉</span>
+                Sky View
+            </a>
+
+            <a class="nav-item" href="dop.html">
+                <span>▥</span>
+                Dilution of Precision
+            </a>
+
+            <a class="nav-item" href="plan-view.html">
+                <span>⌖</span>
+                Plan View
+            </a>
+
+            <a class="nav-item" href="signal-tracking.html">
+                <span>⌁</span>
+                Signal Tracking
+            </a>
+
+            <a class="nav-item" href="integrity.html">
+                <span>◫</span>
+                Integrity Graphs
+            </a>
+
+            <a class="nav-item" href="aviation.html">
+                <span>✈</span>
+                Aviation Graphs
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <button
+                class="menu-btn"
+                onclick="toggleSidebar()">
+                ☰
+            </button>
+
+            <div>
+
+             
+                <div class="breadcrumb" style="color: #1976d2;">
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 
+                    GNSS / Configuration Setting
+                </div>
+
+                <h1>
+                    Configuration Setting
+                </h1>
+
+            </div>
+
+            <!-- <button
+                class="exit-btn"
+                onclick="handleExit()">
+                Exit
+            </button> -->
+
+        </header>
+
+
+        <!-- =================================================
+             PAGE CONTENT
+        ================================================== -->
+
+        <div class="page-content">
+
+            <div class="content-container">
+
+
+                <!-- PAGE TITLE -->
+
+                <!-- <div class="page-title">
+
+                    <h2>
+                        01. Configuration Setting
+                    </h2>
+
+                    <p>
+                        Select the source for the GNSS monitoring session.
+                    </p>
+
+                </div> -->
+
+
+                <!-- =================================================
+                     SOURCE SELECTION
+                ================================================== -->
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <h3>
+                            Select Data Source
+                        </h3>
+
+                        <p>
+                            Choose how GNSS monitoring data will enter the system.
+                        </p>
+
+                    </div>
+
+
+                    <div class="source-options">
+
+
+                        <!-- SERIAL -->
+
+                        <button
+                            type="button"
+                            class="source-option"
+                            id="serialOption"
+                            onclick="showSettings('serial')">
+
+                            <span class="radio"></span>
+
+                            <span class="option-details">
+
+                                <b>
+                                    Serial
+                                </b>
+
+                                <small>
+                                    Live serial source
+                                </small>
+
+                            </span>
+
+                          
+
+                        </button>
+
+
+                        <!-- PLAYBACK -->
+
+                        <button
+                            type="button"
+                            class="source-option"
+                            id="playbackOption"
+                            onclick="showSettings('playback')">
+
+                            <span class="radio"></span>
+
+                            <span class="option-details">
+
+                                <b>
+                                    Playback
+                                </b>
+
+                                <small>
+                                    Replay recorded GNSS monitoring data
+                                </small>
+
+                            </span>
+
+                          
+
+                        </button>
+
+
+                        <!-- NETWORK -->
+
+                        <button
+                            type="button"
+                            class="source-option"
+                            id="networkOption"
+                            onclick="showSettings('network')">
+
+                            <span class="radio"></span>
+
+                            <span class="option-details">
+
+                                <b>
+                                    Network
+                                </b>
+
+                                <small>
+                                    Network GNSS data source
+                                </small>
+
+                            </span>
+<!-- 
+                            <span class="open-arrow">
+                                →
+                            </span> -->
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         SERIAL SETTINGS
+                    ================================================== -->
+
+                    <div
+                        class="settings-panel"
+                        id="serialSettings">
+
+                        <div class="settings-header">
+
+                            <div class="settings-heading">
+
+                                <h3>
+                                    Serial Configuration
+                                </h3>
+
+                                <p>
+                                    Configure the live GNSS serial communication parameters.
+                                </p>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="close-settings"
+                                onclick="closeSettings()">
+                                ×
+                            </button>
+
+                        </div>
+
+
+                        <div class="settings-body">
+
+                            <div class="section-divider"></div>
+
+
+                            <!-- ALL SERIAL FIELDS IN ONE ROW -->
+
+                            <div class="dialog-grid">
+
+
+                                <div class="field-row">
+
+                                    <label>
+                                        Port Name
+                                    </label>
+
+                                    <select>
+
+                                        <option selected>
+                                            COM1
+                                        </option>
+
+                                        <option>
+                                            COM2
+                                        </option>
+
+                                        <option>
+                                            COM3
+                                        </option>
+
+                                        <option>
+                                            COM4
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <div class="field-row">
+
+                                    <label>
+                                        Data Bits
+                                    </label>
+
+                                    <select>
+
+                                        <option selected>
+                                            8
+                                        </option>
+
+                                        <option>
+                                            7
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <div class="field-row">
+
+                                    <label>
+                                        Baud Rate
+                                    </label>
+
+                                    <select>
+
+                                        <option>
+                                            4800
+                                        </option>
+
+                                        <option>
+                                            9600
+                                        </option>
+
+                                        <option>
+                                            19200
+                                        </option>
+
+                                        <option>
+                                            38400
+                                        </option>
+
+                                        <option selected>
+                                            115200
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <div class="field-row">
+
+                                    <label>
+                                        Parity
+                                    </label>
+
+                                    <select>
+
+                                        <option selected>
+                                            None
+                                        </option>
+
+                                        <option>
+                                            Even
+                                        </option>
+
+                                        <option>
+                                            Odd
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <div class="field-row">
+
+                                    <label>
+                                        Stop Bits
+                                    </label>
+
+                                    <select>
+
+                                        <option selected>
+                                            One
+                                        </option>
+
+                                        <option>
+                                            Two
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="button-row">
+
+                                <button
+                                    class="dialog-btn start-btn"
+                                    onclick="startConfiguration('Serial')">
+                                    Start
+                                </button>
+
+                                <button
+                                    class="dialog-btn cancel-btn"
+                                    onclick="closeSettings()">
+                                    Cancel
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         PLAYBACK SETTINGS
+                    ================================================== -->
+
+                    <div 
+    class="settings-panel" 
+    id="playbackSettings"> 
+
+    <div class="settings-header"> 
+
+        <div class="settings-heading"> 
+
+            <h3> 
+                Playback Configuration 
+            </h3> 
+
+            <p> 
+                Replay recorded GNSS monitoring data. 
+            </p> 
+
+        </div> 
+
+        <button 
+            type="button" 
+            class="close-settings" 
+            onclick="closeSettings()"> 
+            × 
+        </button> 
+
+    </div> 
+
+
+    <div class="settings-body"> 
+
+
+        <!-- MODE --> 
+
+        <div class="source-toggle"> 
+
+            <label> 
+
+                <input 
+                    type="radio" 
+                    name="playbackMode" 
+                    value="single" 
+                    checked 
+                    onclick="handleModeSwitch('single')"> 
+
+                Open File 
+
+            </label> 
+
+
+            <label> 
+
+                <input 
+                    type="radio" 
+                    name="playbackMode" 
+                    value="multiple" 
+                    onclick="handleModeSwitch('multiple')"> 
+
+                Select Multiples Files 
+
+            </label> 
+
+        </div> 
+
+
+        <!-- SINGLE FILE INPUT -->
+
+        <input 
+            type="file" 
+            id="single-file-picker" 
+            style="display:none" 
+            onchange="handleSingleFilePick(this)"> 
+
+
+        <!-- MULTIPLE FILE / FOLDER INPUT -->
+
+        <input 
+            type="file" 
+            id="multiple-file-picker" 
+            style="display:none" 
+            webkitdirectory 
+            directory 
+            multiple
+            onchange="handleMultipleFilePick(this)"> 
+
+
+        <!-- FILE PATH --> 
+
+        <div class="file-input-bar"> 
+
+            <label> 
+                File Path 
+            </label> 
+
+            <input 
+                type="text" 
+                id="file-path-input" 
+                placeholder="Select file..." 
+                readonly> 
+
+            <button 
+                type="button" 
+                class="browse-btn" 
+                onclick="triggerBrowse()"> 
+
+                Browse 
+
+            </button> 
+
+        </div> 
+
+
+        <!-- PLAYER --> 
+
+
+        <!-- ACTION BUTTONS --> 
+
+
+      
+
+
+    </div> 
+
+</div>
+
+
+                    <!-- =================================================
+                         NETWORK SETTINGS
+                    ================================================== -->
+
+                    <div
+                        class="settings-panel"
+                        id="networkSettings">
+
+                        <div class="settings-header">
+
+                            <div class="settings-heading">
+
+                                <h3>
+                                    Network Configuration
+                                </h3>
+
+                                <p>
+                                    Configure the network GNSS data source.
+                                </p>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="close-settings"
+                                onclick="closeSettings()">
+                                ×
+                            </button>
+
+                        </div>
+
+
+                        <div class="settings-body">
+
+                            <div class="section-divider"></div>
+
+
+                            <!-- ALL NETWORK FIELDS IN ONE ROW -->
+
+                            <div class="network-grid">
+
+
+                                <div class="field-row">
+
+                                    <label>
+                                        Host / IP Address
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="networkHost"
+                                        placeholder="127.0.0.1">
+
+                                </div>
+
+
+                                <div class="field-row">
+
+                                    <label>
+                                        Port
+                                    </label>
+
+                                    <input
+                                        type="number"
+                                        id="networkPort"
+                                        placeholder="5000">
+
+                                </div>
+
+
+                                <div class="field-row">
+
+                                    <label>
+                                        Protocol
+                                    </label>
+
+                                    <select>
+
+                                        <option>
+                                            TCP
+                                        </option>
+
+                                        <option>
+                                            UDP
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <div class="field-row">
+
+                                    <label>
+                                        Connection Mode
+                                    </label>
+
+                                    <select>
+
+                                        <option>
+                                            Client
+                                        </option>
+
+                                        <option>
+                                            Server
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="button-row">
+
+                                <button
+                                    class="dialog-btn start-btn"
+                                    onclick="startConfiguration('Network')">
+
+                                    Connect
+
+                                </button>
+
+
+                                <button
+                                    class="dialog-btn cancel-btn"
+                                    onclick="closeSettings()">
+
+                                    Cancel
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     HOME / BACK AT END OF PAGE
+                ================================================== -->
+
+                <div class="bottom-navigation">
+
+                    <a
+                        class="bottom-nav-btn"
+                        href="../index.html">
+
+                         Home
+
+                    </a>
+
+
+                    <button
+                        class="bottom-nav-btn"
+                        onclick="history.back()">
+
+                         Back
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer class="app-footer" id="appFooter">
+
+        <button type="button" class="rx-toggle" id="rxToggle"
+                aria-controls="rxPanel" aria-expanded="false"
+                title="Open Rx • Logging • Error console (Alt+L)">
+          <span class="rx-led" aria-hidden="true"></span>
+          <span class="rx-toggle-label">Rx • Logging • Error</span>
+          <span class="rx-counters" aria-hidden="true">
+            <span class="rx-chip rx-chip-rx">RX <b data-rx-count="rx">0</b></span>
+            <span class="rx-chip rx-chip-log">LOG <b data-rx-count="log">0</b></span>
+            <span class="rx-chip rx-chip-warn">WARN <b data-rx-count="warn">0</b></span>
+            <span class="rx-chip rx-chip-err">ERR <b data-rx-count="err">0</b></span>
+          </span>
+          <span class="rx-caret" aria-hidden="true">&#9650;</span>
+        </button>
+
+        <span class="app-footer-copy">Copyright @SUP</span>
+
+        <span class="app-footer-name">GPMS Performance Monitoring System</span>
+
+      </footer>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     FOLDER BROWSER MODAL
+========================================================= -->
+
+<div
+    class="folder-dialog-overlay"
+    id="folder-dialog-modal">
+
+    <div class="folder-dialog">
+
+
+        <div class="dialog-header">
+
+            <span>
+                Browse For Folder
+            </span>
+
+            <span
+                class="close-btn"
+                onclick="closeFolderDialog()">
+
+                ✕
+
+            </span>
+
+        </div>
+
+
+        <div class="dialog-body">
+
+            <p>
+                Open a folder which contains the gps output
+            </p>
+
+
+            <div class="tree-view-window">
+
+
+                <!-- THIS PC -->
+
+                <div class="tree-node">
+
+                    <div
+                        class="tree-row"
+                        onclick="selectFolder(this, 'This PC')">
+
+                        <span
+                            class="tree-expander"
+                            onclick="toggleTreeNode(event, 'c-pc')">
+
+                            ▼
+
+                        </span>
+
+                        <span class="tree-icon">
+                            💻
+                        </span>
+
+                        <span>
+                            This PC
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="tree-children expanded"
+                        id="c-pc">
+
+
+                        <div
+                            class="tree-row"
+                            onclick="selectFolder(this, '3D Objects')">
+
+                            <span
+                                class="tree-expander"
+                                onclick="toggleTreeNode(event, 'c-3d')">
+
+                                ▶
+
+                            </span>
+
+                            <span class="tree-icon">
+                                🧊
+                            </span>
+
+                            <span>
+                                3D Objects
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="tree-children"
+                            id="c-3d">
+
+                            <div
+                                class="tree-row"
+                                onclick="selectFolder(this, '3D Objects\\Models')">
+
+                                <span class="tree-expander"></span>
+
+                                <span class="tree-icon">
+                                    📁
+                                </span>
+
+                                <span>
+                                    Models
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- DESKTOP -->
+
+                        <div
+                            class="tree-row"
+                            onclick="selectFolder(this, 'Desktop')">
+
+                            <span
+                                class="tree-expander"
+                                onclick="toggleTreeNode(event, 'c-desk')">
+
+                                ▶
+
+                            </span>
+
+                            <span class="tree-icon">
+                                🖥
+                            </span>
+
+                            <span>
+                                Desktop
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="tree-children"
+                            id="c-desk">
+
+                            <div
+                                class="tree-row"
+                                onclick="selectFolder(this, 'Desktop\\GNSS_Project')">
+
+                                <span class="tree-expander"></span>
+
+                                <span class="tree-icon">
+                                    📁
+                                </span>
+
+                                <span>
+                                    GNSS_Project
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- DOCUMENTS -->
+
+                        <div
+                            class="tree-row selected"
+                            onclick="selectFolder(this, 'Documents')">
+
+                            <span
+                                class="tree-expander"
+                                onclick="toggleTreeNode(event, 'c-docs')">
+
+                                ▼
+
+                            </span>
+
+                            <span class="tree-icon">
+                                📄
+                            </span>
+
+                            <span>
+                                Documents
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="tree-children expanded"
+                            id="c-docs">
+
+                            <div
+                                class="tree-row"
+                                onclick="selectFolder(this, 'Documents\\GNSS_Logs')">
+
+                                <span class="tree-expander"></span>
+
+                                <span class="tree-icon">
+                                    📁
+                                </span>
+
+                                <span>
+                                    GNSS_Logs
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                class="tree-row"
+                                onclick="selectFolder(this, 'Documents\\RTK_Output')">
+
+                                <span class="tree-expander"></span>
+
+                                <span class="tree-icon">
+                                    📁
+                                </span>
+
+                                <span>
+                                    RTK_Output
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- DOWNLOADS -->
+
+                        <div
+                            class="tree-row"
+                            onclick="selectFolder(this, 'Downloads')">
+
+                            <span
+                                class="tree-expander"
+                                onclick="toggleTreeNode(event, 'c-down')">
+
+                                ▶
+
+                            </span>
+
+                            <span class="tree-icon">
+                                ⬇
+                            </span>
+
+                            <span>
+                                Downloads
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="tree-children"
+                            id="c-down">
+
+                            <div
+                                class="tree-row"
+                                onclick="selectFolder(this, 'Downloads\\Dataset_2026')">
+
+                                <span class="tree-expander"></span>
+
+                                <span class="tree-icon">
+                                    📁
+                                </span>
+
+                                <span>
+                                    Dataset_2026
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- MUSIC -->
+
+                        <div
+                            class="tree-row"
+                            onclick="selectFolder(this, 'Music')">
+
+                            <span class="tree-expander">
+                                ▶
+                            </span>
+
+                            <span class="tree-icon">
+                                🎵
+                            </span>
+
+                            <span>
+                                Music
+                            </span>
+
+                        </div>
+
+
+                        <!-- PICTURES -->
+
+                        <div
+                            class="tree-row"
+                            onclick="selectFolder(this, 'Pictures')">
+
+                            <span class="tree-expander">
+                                ▶
+                            </span>
+
+                            <span class="tree-icon">
+                                🖼
+                            </span>
+
+                            <span>
+                                Pictures
+                            </span>
+
+                        </div>
+
+
+                        <!-- VIDEOS -->
+
+                        <div
+                            class="tree-row"
+                            onclick="selectFolder(this, 'Videos')">
+
+                            <span class="tree-expander">
+                                ▶
+                            </span>
+
+                            <span class="tree-icon">
+                                🎬
+                            </span>
+
+                            <span>
+                                Videos
+                            </span>
+
+                        </div>
+
+
+                        <!-- C DRIVE -->
+
+                        <div
+                            class="tree-row"
+                            onclick="selectFolder(this, 'Windows 10 x64 Legacy (C:)')">
+
+                            <span
+                                class="tree-expander"
+                                onclick="toggleTreeNode(event, 'c-c')">
+
+                                ▶
+
+                            </span>
+
+                            <span class="tree-icon">
+                                💽
+                            </span>
+
+                            <span>
+                                Windows 10 x64 Legacy (C:)
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="tree-children"
+                            id="c-c">
+
+                            <div
+                                class="tree-row"
+                                onclick="selectFolder(this, 'C:\\Program Files')">
+
+                                <span class="tree-expander"></span>
+
+                                <span class="tree-icon">
+                                    📁
+                                </span>
+
+                                <span>
+                                    Program Files
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                class="tree-row"
+                                onclick="selectFolder(this, 'C:\\GNSS_Data')">
+
+                                <span class="tree-expander"></span>
+
+                                <span class="tree-icon">
+                                    📁
+                                </span>
+
+                                <span>
+                                    GNSS_Data
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="tree-row"
+                            onclick="selectFolder(this, 'HDD1- New Volume (D:)')">
+
+                            <span class="tree-expander">
+                                ▶
+                            </span>
+
+                            <span class="tree-icon">
+                                💾
+                            </span>
+
+                            <span>
+                                HDD1- New Volume (D:)
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="tree-row"
+                            onclick="selectFolder(this, 'HDD2- Code (E:)')">
+
+                            <span class="tree-expander">
+                                ▶
+                            </span>
+
+                            <span class="tree-icon">
+                                💾
+                            </span>
+
+                            <span>
+                                HDD2- Code (E:)
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="tree-row"
+                            onclick="selectFolder(this, 'HDD2 - MASTA (F:)')">
+
+                            <span class="tree-expander">
+                                ▶
+                            </span>
+
+                            <span class="tree-icon">
+                                💾
+                            </span>
+
+                            <span>
+                                HDD2 - MASTA (F:)
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="dialog-footer">
+
+            <button onclick="confirmFolderSelection()">
+                OK
+            </button>
+
+            <button onclick="closeFolderDialog()">
+                Cancel
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script src="../assets/js/core/app.js"></script>
+
+<script src="../assets/js/pages/configuration.js"></script>
+
+</body>
+</html>
+

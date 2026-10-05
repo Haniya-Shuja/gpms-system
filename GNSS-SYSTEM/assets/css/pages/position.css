@@ -1,0 +1,435 @@
+/* position page styles (extracted from inline <style>) */
+
+    /* =========================================================
+       Professional material blue theme (#1976d2)
+       ========================================================= */
+    :root {
+      --position-blue: #1976d2;
+      --position-blue-dark: #1565c0;
+      --position-blue-light: #e3f2fd;
+      --position-blue-border: #bbdefb;
+      --position-blue-text: #0d47a1;
+    }
+
+    /* =========================================================
+       Footer
+       ========================================================= */
+    
+
+    
+
+    
+
+    
+
+    
+
+    /* =========================================================
+       Position page
+       ========================================================= */
+    .position-wrapper {
+      width: 100%;
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 10px 20px 25px;
+    }
+
+    /* =========================================================
+       Main position container
+       ========================================================= */
+    .position-container {
+      width: 100%;
+      background: #ffffff;
+      border: 1px solid var(--position-blue-border);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 8px 28px rgba(25, 118, 210, 0.12);
+    }
+
+    /* =========================================================
+       Page heading
+       ========================================================= */
+    .position-heading {
+      text-align: center;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e1e9f2;
+    }
+
+    .position-heading h2 {
+      margin: 0 0 8px;
+      color: var(--position-blue-text);
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+
+    .position-heading p {
+      margin: 0;
+      color: #667789;
+      font-size: 0.95rem;
+    }
+
+    /* =========================================================
+       Quick stats
+       ========================================================= */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stat {
+      background: #f7faff;
+      border: 1px solid var(--position-blue-border);
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+      min-width: 0;
+      transition: 0.2s ease;
+    }
+
+    .stat:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(25, 118, 210, 0.15);
+      border-color: #90caf9;
+    }
+
+    .stat small,
+    .stat .label {
+      display: block;
+      color: #667789;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: 0.4px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--position-blue-text);
+      font-size: 1.05rem;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    /* =========================================================
+       Position sections
+       ========================================================= */
+    .pos-section {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .pos-card {
+      background: #ffffff;
+      border: 1px solid #d9e4ef;
+      border-radius: 12px;
+      padding: 22px 24px;
+    }
+
+    /* =========================================================
+       Card headings
+       ========================================================= */
+    .pos-card h4 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e3eaf1;
+      color: var(--position-blue);
+      font-size: 0.88rem;
+      letter-spacing: 0.6px;
+      font-weight: 700;
+    }
+
+    .pos-card h4::before {
+      content: "";
+      width: 4px;
+      height: 18px;
+      background: var(--position-blue);
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    /* =========================================================
+       Data table
+       ========================================================= */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .data-table td {
+      padding: 11px 10px;
+      font-size: 0.94rem;
+      border-bottom: 1px solid #edf2f6;
+      vertical-align: middle;
+    }
+
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .data-table .label {
+      color: #64748b;
+      width: 38%;
+      font-weight: 600;
+    }
+
+    .data-table .value {
+      color: var(--position-blue-text);
+      font-weight: 700;
+    }
+
+    .data-table .tolerance {
+      color: #64748b;
+      font-weight: 500;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .highlight-val {
+      color: var(--position-blue) !important;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       Epoch grid
+       ========================================================= */
+    .epoch-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .epoch-item {
+      background: #f7faff;
+      border: 1px solid #dce6f0;
+      border-radius: 9px;
+      padding: 14px 16px;
+      min-width: 0;
+    }
+
+    .epoch-item small,
+    .epoch-item .label {
+      display: block;
+      color: #64748b;
+      font-size: 0.76rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      letter-spacing: 0.3px;
+    }
+
+    .epoch-item strong {
+      color: var(--position-blue-text);
+      font-size: 0.94rem;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    /* =========================================================
+       Home + back buttons (#1976d2)
+       ========================================================= */
+    .bottom-navigation {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 12px;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid #dfe7ec;
+    }
+
+    .bottom-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 100px;
+      height: 40px;
+      padding: 0 18px;
+      border-radius: 6px;
+      background: #1976d2;
+      border: 1px solid #1565c0;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      box-sizing: border-box;
+      transition: all 0.2s ease;
+      box-shadow: 0 3px 8px rgba(25, 118, 210, 0.2);
+    }
+
+    .bottom-nav-btn:hover {
+      background: #1565c0;
+      border-color: #0d47a1;
+      transform: translateY(-1px);
+      box-shadow: 0 5px 12px rgba(25, 118, 210, 0.3);
+    }
+
+    .position-bottom-navigation {
+      max-width: 1150px;
+      margin: 10px auto 0;
+      padding: 0 20px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    .position-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 105px;
+      padding: 10px 18px;
+      border: 1px solid #1565c0;
+      border-radius: 7px;
+      background: #1976d2;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 3px 8px rgba(25, 118, 210, 0.2);
+    }
+
+    .position-nav-btn:hover {
+      background: #1565c0;
+      border-color: #0d47a1;
+      transform: translateY(-1px);
+      box-shadow: 0 5px 12px rgba(25, 118, 210, 0.3);
+    }
+
+    .position-nav-btn:active,
+    .bottom-nav-btn:active {
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       Responsive breakpoints
+       ========================================================= */
+    
+
+    @media (max-width: 600px) {
+      .position-wrapper {
+        padding: 5px 10px 15px;
+      }
+
+      .position-container {
+        padding: 16px;
+        border-radius: 12px;
+      }
+
+      .position-heading {
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+      }
+
+      .position-heading h2 {
+        font-size: 1.35rem;
+      }
+
+      .position-heading p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .stat {
+        padding: 15px;
+      }
+
+      .pos-section {
+        gap: 12px;
+      }
+
+      .pos-card {
+        padding: 17px 14px;
+        border-radius: 10px;
+      }
+
+      .data-table {
+        display: block;
+        overflow-x: auto;
+      }
+
+      .data-table td {
+        padding: 9px 6px;
+        font-size: 0.84rem;
+      }
+
+      .data-table .label {
+        width: 42%;
+      }
+
+      .data-table .tolerance {
+        text-align: right;
+      }
+
+      .epoch-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .position-bottom-navigation {
+        padding: 0 10px 20px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+
+      .position-nav-btn {
+        width: 100%;
+      }
+
+      
+
+      
+
+      
+
+      
+
+      
+    }
+
+    @media (max-width: 380px) {
+      .position-container {
+        padding: 12px;
+      }
+
+      .position-heading h2 {
+        font-size: 1.2rem;
+      }
+
+      .pos-card {
+        padding: 14px 11px;
+      }
+
+      .data-table td {
+        font-size: 0.78rem;
+      }
+
+      .epoch-item strong {
+        font-size: 0.84rem;
+      }
+
+      .position-nav-btn {
+        font-size: 0.82rem;
+        padding: 9px 14px;
+      }
+
+      
+
+      
+    }
+  

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Integrity Graphs | GNSS Toolkit</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/rx-log.css">
+  <script src="../assets/js/core/rx-logger.js"></script>
+
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-mark">GNSS</div>
+      <div><strong>GNSS Toolkit</strong><small>Performance Monitor</small></div>
+    </div>
+    <nav class="sidebar-nav">
+      <a class="nav-item" href="../index.html"><span>⌂</span>Home</a>
+      <a class="nav-item" href="configuration.html"><span>⚙</span>Configuration Setting</a>
+      <a class="nav-item" href="position.html"><span>◎</span>Position Window</a>
+      <a class="nav-item" href="sky-view.html"><span>◉</span>Sky View</a>
+      <a class="nav-item" href="dop.html"><span>▥</span>Dilution of Precision</a>
+      <a class="nav-item" href="plan-view.html"><span>⌖</span>Plan View</a>
+      <a class="nav-item" href="signal-tracking.html"><span>⌁</span>Signal Tracking</a>
+      <a class="nav-item active" href="integrity.html"><span>◫</span>Integrity Graphs</a>
+      <a class="nav-item" href="aviation.html"><span>✈</span>Aviation Graphs</a>
+    </nav>
+  
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+      <div>
+        <div class="breadcrumb">GNSS / Integrity Graphs</div>
+        <h1>Integrity Graphs</h1>
+      </div>
+      <!-- <button class="exit-btn" onclick="handleExit()">Exit</button> -->
+    </header>
+
+    <div class="page-content">
+      
+
+      <div class="page-title">
+       <h2>Monitor GNSS integrity and availability graphs.</h2>
+      
+      </div>
+
+      <div class="panel">
+        <h3>Integrity Graphs</h3>
+        <p>APV Availability • BeiDou • Galileo • QZSS • SBAS</p>
+
+        <!-- 6 GRAPHS SIDE-BY-SIDE GRID -->
+        <div class="integrity-grid-container">
+
+          <!-- 1. APV Graph -->
+          <div class="graph-card">
+            <div class="graph-card-header">APV</div>
+            <div class="graph-card-tabs">
+              <button class="graph-tab active">GPS</button>
+              <button class="graph-tab">GLONASS</button>
+              <button class="graph-tab">BeiDou</button>
+              <button class="graph-tab">SBAS</button>
+              <button class="graph-tab">Galileo</button>
+              <button class="graph-tab">QZSS</button>
+            </div>
+            <div class="canvas-container">
+              <canvas id="apvCanvas"></canvas>
+            </div>
+            <div class="graph-legend-box">
+              <div class="legend-title">Legend</div>
+              <div class="legend-items">
+                <span class="legend-item"><span class="legend-swatch" style="background:#e07b10"></span>L1 C\A</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#289c19"></span>L2 P codeless</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#9c27b0"></span>L5 Q</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#4caf50"></span>L2 P</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#2196f3"></span>L2 C</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Availability Graph -->
+          <div class="graph-card">
+            <div class="graph-card-header">Availability</div>
+            <div class="graph-card-tabs">
+              <button class="graph-tab">GPS</button>
+              <button class="graph-tab">GLONASS</button>
+              <button class="graph-tab active">BeiDou</button>
+              <button class="graph-tab">SBAS</button>
+              <button class="graph-tab">Galileo</button>
+              <button class="graph-tab">QZSS</button>
+            </div>
+            <div class="canvas-container">
+              <canvas id="availCanvas"></canvas>
+            </div>
+            <div class="graph-legend-box">
+              <div class="legend-title">Legend</div>
+              <div class="legend-items">
+                <span class="legend-item"><span class="legend-swatch" style="background:#e07b10"></span>L1 C\A</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#289c19"></span>L2 P</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#9c27b0"></span>L2 C\A</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. BeiDou Graph -->
+          <div class="graph-card">
+            <div class="graph-card-header">BeiDou</div>
+            <div class="canvas-container">
+              <canvas id="beidouCanvas"></canvas>
+            </div>
+            <div class="graph-legend-box">
+              <div class="legend-title">Legend</div>
+              <div class="legend-items">
+                <span class="legend-item"><span class="legend-swatch" style="background:#e07b10"></span>B1 with D1 data</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#289c19"></span>B2 with D1 data</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#9c27b0"></span>B1 with D2 data</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#4caf50"></span>B2 with D2 data</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Galileo Graph -->
+          <div class="graph-card">
+            <div class="graph-card-header">Galileo</div>
+            <div class="graph-card-tabs">
+              <button class="graph-tab active">GPS</button>
+              <button class="graph-tab">GLONASS</button>
+              <button class="graph-tab">BeiDou</button>
+              <button class="graph-tab">SBAS</button>
+              <button class="graph-tab">QZSS</button>
+            </div>
+            <div class="canvas-container">
+              <canvas id="galileoCanvas"></canvas>
+            </div>
+            <div class="graph-legend-box">
+              <div class="legend-title">Legend</div>
+              <div class="legend-items">
+                <span class="legend-item"><span class="legend-swatch" style="background:#e07b10"></span>E1-B</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#289c19"></span>E5a-Q</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#9c27b0"></span>E5b-I</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#2196f3"></span>ALTBOC/Q</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. QZSS Graph -->
+          <div class="graph-card">
+            <div class="graph-card-header">QZSS</div>
+            <div class="canvas-container">
+              <canvas id="qzssCanvas"></canvas>
+            </div>
+            <div class="graph-legend-box">
+              <div class="legend-title">Legend</div>
+              <div class="legend-items">
+                <span class="legend-item"><span class="legend-swatch" style="background:#e07b10"></span>L1 C/A</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#289c19"></span>L2C</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#9c27b0"></span>L5</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. SBAS Graph -->
+          <div class="graph-card">
+            <div class="graph-card-header">SBAS</div>
+            <div class="canvas-container">
+              <canvas id="sbasCanvas"></canvas>
+            </div>
+            <div class="graph-legend-box">
+              <div class="legend-title">Legend</div>
+              <div class="legend-items">
+                <span class="legend-item"><span class="legend-swatch" style="background:#e07b10"></span>L1 C/A</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#289c19"></span>L5</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="bottom-navigation">
+
+          <a
+            class="bottom-nav-btn"
+            href="../index.html">
+
+            Home
+
+          </a>
+
+
+          <button
+            class="bottom-nav-btn"
+            onclick="history.back()">
+
+            Back
+
+          </button>
+
+        </div>
+
+    </div>
+
+    <footer class="app-footer" id="appFooter">
+
+        <button type="button" class="rx-toggle" id="rxToggle"
+                aria-controls="rxPanel" aria-expanded="false"
+                title="Open Rx • Logging • Error console (Alt+L)">
+          <span class="rx-led" aria-hidden="true"></span>
+          <span class="rx-toggle-label">Rx • Logging • Error</span>
+          <span class="rx-counters" aria-hidden="true">
+            <span class="rx-chip rx-chip-rx">RX <b data-rx-count="rx">0</b></span>
+            <span class="rx-chip rx-chip-log">LOG <b data-rx-count="log">0</b></span>
+            <span class="rx-chip rx-chip-warn">WARN <b data-rx-count="warn">0</b></span>
+            <span class="rx-chip rx-chip-err">ERR <b data-rx-count="err">0</b></span>
+          </span>
+          <span class="rx-caret" aria-hidden="true">&#9650;</span>
+        </button>
+
+        <span class="app-footer-copy">Copyright @SUP</span>
+
+        <span class="app-footer-name">GPMS Performance Monitoring System</span>
+
+      </footer>
+  </main>
+</div>
+
+<script src="../assets/js/core/app.js"></script>
+<script src="../assets/js/pages/integrity.js"></script>
+</body>
+</html>

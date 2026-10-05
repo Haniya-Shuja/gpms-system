@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dilution of Precision</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/pages/dop.css">
+  <link rel="stylesheet" href="../assets/css/rx-log.css">
+  <script src="../assets/js/core/rx-logger.js"></script>
+
+</head>
+
+<body>
+<div class="app-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-mark">GNSS</div>
+      <div>
+        <strong>GNSS Toolkit</strong>
+        <small>Performance Monitor</small>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="nav-item" href="../index.html"><span>⌂</span>Home</a>
+      <a class="nav-item" href="configuration.html"><span>⚙</span>Configuration Setting</a>
+      <a class="nav-item" href="position.html"><span>◎</span>Position Window</a>
+      <a class="nav-item" href="sky-view.html"><span>◉</span>Sky View</a>
+      <a class="nav-item active" href="dop.html"><span>▥</span>Dilution of Precision</a>
+      <a class="nav-item" href="plan-view.html"><span>⌖</span>Plan View</a>
+      <a class="nav-item" href="signal-tracking.html"><span>⌁</span>Signal Tracking</a>
+      <a class="nav-item" href="integrity.html"><span>◫</span>Integrity Graphs</a>
+      <a class="nav-item" href="aviation.html"><span>✈</span>Aviation Graphs</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+      <div>
+        <div class="breadcrumb">GPMS / Dilution of Precision</div>
+        <h1>Dilution of Precision</h1>
+      </div>
+      <!-- <button class="exit-btn" onclick="handleExit()">Exit</button> -->
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <div class="page-content">
+      <div class="dop-wrapper">
+        <div class="dop-container">
+
+          <!-- PAGE HEADING -->
+          <div class="dop-heading">
+           
+            <h3>Analyze HDOP, VDOP, PDOP, TDOP and GDOP measurements.</h3>
+          </div>
+
+          <!-- GRAPH PANEL -->
+          <div class="panel">
+            <div class="graphs-grid">
+
+              <!-- BAR GRAPH -->
+              <div class="graph-box">
+                <div class="graph-title">
+                  <h4>DOP Measurements</h4>
+                  <span class="graph-badge">BAR VIEW</span>
+                </div>
+
+                <div class="dop-chart">
+                  <div class="bar-wrap">
+                    <span>0.82</span>
+                    <div class="bar" style="height:45%"></div>
+                    <small>HDOP</small>
+                  </div>
+                  <div class="bar-wrap">
+                    <span>1.21</span>
+                    <div class="bar" style="height:65%"></div>
+                    <small>VDOP</small>
+                  </div>
+                  <div class="bar-wrap">
+                    <span>1.46</span>
+                    <div class="bar" style="height:55%"></div>
+                    <small>PDOP</small>
+                  </div>
+                  <div class="bar-wrap">
+                    <span>0.91</span>
+                    <div class="bar" style="height:40%"></div>
+                    <small>TDOP</small>
+                  </div>
+                  <div class="bar-wrap">
+                    <span>1.70</span>
+                    <div class="bar" style="height:75%"></div>
+                    <small>GDOP</small>
+                  </div>
+                </div>
+              </div>
+
+              <!-- LINE GRAPH -->
+              <div class="graph-box">
+                <div class="graph-title">
+                  <h4>DOP History</h4>
+                  <span class="graph-badge">UTC TELEMETRY</span>
+                </div>
+
+                <div class="scichart-container">
+                  <div class="chart-header-bar">
+                    <span>Help</span>
+                    <span class="chart-title-text">Dilution of Precision (DOP) Vs. UTC Time</span>
+                    <span>● Live</span>
+                  </div>
+
+                  <div class="chart-body">
+                    <div class="chart-tools">
+                      <span title="Zoom Extents">🔍</span>
+                      <span title="Zoom In">+</span>
+                      <span title="Zoom Out">−</span>
+                      <span title="Pan">✥</span>
+                      <span title="Settings">⚙</span>
+                      <span title="Log">Log</span>
+                    </div>
+
+                    <div class="canvas-wrapper">
+                      <!-- Legend -->
+                      <div class="chart-legend">
+                        <div class="legend-row">
+                          <span class="legend-color-line" style="background:#0284c7;"></span> GDOP
+                        </div>
+                        <div class="legend-row">
+                          <span class="legend-color-line" style="background:#ea580c;"></span> PDOP
+                        </div>
+                        <div class="legend-row">
+                          <span class="legend-color-line" style="background:#2563eb;"></span> HDOP
+                        </div>
+                        <div class="legend-row">
+                          <span class="legend-color-line" style="background:#d97706;"></span> VDOP
+                        </div>
+                        <div class="legend-row">
+                          <span class="legend-color-line" style="background:#16a34a;"></span> TDOP
+                        </div>
+                      </div>
+
+                      <canvas id="dopLineChart"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- BOTTOM NAVIGATION: BLUE HOME & BACK BUTTONS -->
+      <div class="bottom-navigation">
+
+            <a
+              class="bottom-nav-btn"
+              href="../index.html">
+
+              Home
+
+            </a>
+
+
+            <button
+              class="bottom-nav-btn"
+              onclick="history.back()">
+
+              Back
+
+            </button>
+
+          </div>
+
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="app-footer" id="appFooter">
+
+        <button type="button" class="rx-toggle" id="rxToggle"
+                aria-controls="rxPanel" aria-expanded="false"
+                title="Open Rx • Logging • Error console (Alt+L)">
+          <span class="rx-led" aria-hidden="true"></span>
+          <span class="rx-toggle-label">Rx • Logging • Error</span>
+          <span class="rx-counters" aria-hidden="true">
+            <span class="rx-chip rx-chip-rx">RX <b data-rx-count="rx">0</b></span>
+            <span class="rx-chip rx-chip-log">LOG <b data-rx-count="log">0</b></span>
+            <span class="rx-chip rx-chip-warn">WARN <b data-rx-count="warn">0</b></span>
+            <span class="rx-chip rx-chip-err">ERR <b data-rx-count="err">0</b></span>
+          </span>
+          <span class="rx-caret" aria-hidden="true">&#9650;</span>
+        </button>
+
+        <span class="app-footer-copy">Copyright @SUP</span>
+
+        <span class="app-footer-name">GPMS Performance Monitoring System</span>
+
+      </footer>
+
+  </main>
+</div>
+
+<script src="../assets/js/core/app.js"></script>
+
+<script src="../assets/js/pages/dop.js"></script>
+
+</body>
+</html>

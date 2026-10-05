@@ -1,0 +1,547 @@
+/* sky-view page styles (extracted from inline <style>) */
+
+    /* =========================================================
+       FULL PAGE SCROLL FIX
+    ========================================================= */
+
+    html {
+      min-height: 100%;
+      height: auto;
+      overflow-x: hidden;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      height: auto;
+      margin: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .app-shell {
+      min-height: 100vh;
+      height: auto;
+      overflow: visible;
+    }
+
+    .main-content {
+      min-height: 100vh;
+      height: auto;
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sky-view-wrapper {
+      width: 100%;
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 10px 20px 35px;
+      flex: 0 0 auto;
+      min-height: auto;
+      overflow: visible;
+    }
+
+    .sky-view-container {
+      width: 100%;
+      background: #fff;
+      border: 1px solid #dfe7ec;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 8px 28px rgba(16, 36, 62, .08);
+      overflow: visible;
+    }
+
+    /* =========================================================
+       BOTTOM NAVIGATION
+    ========================================================= */
+
+    .bottom-navigation {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 12px;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid #dfe7ec;
+    }
+
+    .bottom-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 100px;
+      height: 40px;
+      padding: 0 18px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #1976d2, #1565c0);
+      border: 1px solid #1565c0;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      box-sizing: border-box;
+      transition: all .2s ease;
+    }
+
+    .bottom-nav-btn:hover {
+      background: linear-gradient(135deg, #1565c0, #0d47a1);
+      border-color: #0d47a1;
+      transform: translateY(-1px);
+    }
+
+    /* =========================================================
+       SKY VIEW HEADING
+    ========================================================= */
+
+    .sky-view-heading {
+      text-align: center;
+      margin-bottom: 20px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #e5ebef;
+    }
+
+    .sky-view-heading h2,
+    .sky-view-heading h3 {
+      margin: 0 0 8px;
+      color: #10243e;
+      font-size: 1.7rem;
+    }
+
+    .sky-view-heading p {
+      margin: 0;
+      color: #667789;
+      font-size: .95rem;
+    }
+
+    /* =========================================================
+       DATA PANEL
+    ========================================================= */
+
+    .panel {
+      background: #fff;
+      border: 1px solid #dfe7ec;
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin-bottom: 18px;
+    }
+
+    .panel h3 {
+      margin: 0 0 7px;
+      color: #10243e;
+      font-size: 1.05rem;
+    }
+
+    .panel > p {
+      margin: 0 0 16px;
+      color: #667789;
+      font-size: .9rem;
+    }
+
+    /* =========================================================
+       DATA SOURCE
+    ========================================================= */
+
+    .data-source {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      border: 1px solid #dce8e5;
+      border-radius: 9px;
+      background: #f6fbfa;
+    }
+
+    .source-label {
+      font-size: .76rem;
+      color: #64748b;
+      margin-bottom: 3px;
+    }
+
+    .source-file {
+      font-size: .9rem;
+      font-weight: 700;
+      color: #10243e;
+      word-break: break-word;
+    }
+
+    .source-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 10px;
+      border-radius: 20px;
+      background: #e7f8f3;
+      color: #176b5a;
+      font-size: .76rem;
+      font-weight: 700;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #0d9f7a;
+    }
+
+    .status-box {
+      margin: 10px 0 14px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: #f0fdf9;
+      border: 1px solid #c8eee4;
+      color: #176b5a;
+      font-size: .82rem;
+    }
+
+    /* =========================================================
+       STATISTICS
+    ========================================================= */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .stat-card {
+      padding: 12px;
+      border: 1px solid #e2e8f0;
+      border-radius: 9px;
+      background: #f8fafc;
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 1.2rem;
+      color: #10243e;
+    }
+
+    .stat-card span {
+      font-size: .75rem;
+      color: #64748b;
+    }
+
+    /* =========================================================
+       SKY PLOT
+    ========================================================= */
+
+    .sky-plot-wrapper {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(16, 36, 62, .05);
+
+      /*
+        IMPORTANT:
+        Do not use fixed height here.
+        This allows the whole graph to remain visible.
+      */
+      height: auto;
+      min-height: 0;
+      overflow: visible;
+    }
+
+    .sky-plot-menubar {
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 8px 16px;
+      font-size: 13px;
+      color: #475569;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .sky-plot-legend {
+      display: flex;
+      gap: 18px;
+      padding: 10px 18px;
+      background: #fff;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 12px;
+      font-weight: 500;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot-gps {
+      background: #f97316;
+    }
+
+    .dot-glonass {
+      background: #16a34a;
+    }
+
+    .dot-galileo {
+      background: #06b6d4;
+    }
+
+    .dot-beidou {
+      background: #9333ea;
+    }
+
+    .dot-navic {
+      background: #2563eb;
+    }
+
+    .sky-plot-canvas {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 22px 10px;
+      background: #fff;
+
+      /*
+        Graph is allowed to determine its own height.
+      */
+      min-height: 0;
+      overflow: visible;
+    }
+
+    #skyPlot {
+      display: block;
+      width: 100%;
+      max-width: 620px;
+      height: auto;
+      min-height: 400px;
+    }
+
+    /* =========================================================
+       SVG GRAPH
+    ========================================================= */
+
+    .grid-circle {
+      fill: none;
+      stroke: #cbd5e1;
+      stroke-width: 1;
+    }
+
+    .grid-subcircle {
+      fill: none;
+      stroke: #f1f5f9;
+      stroke-width: .8;
+      stroke-dasharray: 2 2;
+    }
+
+    .radial-line {
+      stroke: #e2e8f0;
+      stroke-width: 1;
+    }
+
+    .azimuth-text {
+      font-size: 11px;
+      fill: #475569;
+      font-weight: 600;
+      text-anchor: middle;
+      dominant-baseline: central;
+      font-family: sans-serif;
+    }
+
+    .elevation-text {
+      font-size: 10px;
+      fill: #64748b;
+      font-weight: 500;
+      text-anchor: middle;
+      dominant-baseline: central;
+      font-family: sans-serif;
+    }
+
+    .direction-label {
+      font-size: 13px;
+      fill: #10243e;
+      font-weight: 800;
+      text-anchor: middle;
+      dominant-baseline: central;
+      font-family: sans-serif;
+    }
+
+    .satellite {
+      cursor: pointer;
+    }
+
+    .satellite circle {
+      stroke: #fff;
+      stroke-width: 2;
+      transition: .15s;
+    }
+
+    .satellite:hover circle {
+      stroke: #10243e;
+      stroke-width: 3;
+    }
+
+    .sat-label {
+      font-size: 9px;
+      font-weight: 700;
+      fill: #fff;
+      text-anchor: middle;
+      dominant-baseline: central;
+      font-family: sans-serif;
+      pointer-events: none;
+    }
+
+    .empty-message {
+      fill: #64748b;
+      font-size: 14px;
+      text-anchor: middle;
+    }
+
+    /* =========================================================
+       SATELLITE TABLE
+    ========================================================= */
+
+    .sat-table-wrap {
+      overflow-x: auto;
+      overflow-y: visible;
+      margin-top: 16px;
+      border: 1px solid #e2e8f0;
+      border-radius: 9px;
+      max-width: 100%;
+    }
+
+    .sat-table {
+      width: 100%;
+      min-width: 600px;
+      border-collapse: collapse;
+      font-size: .8rem;
+    }
+
+    .sat-table th,
+    .sat-table td {
+      padding: 9px 10px;
+      border-bottom: 1px solid #edf2f7;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .sat-table th {
+      background: #f8fafc;
+      color: #475569;
+    }
+
+    .sat-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .constellation-chip {
+      display: inline-block;
+      padding: 3px 7px;
+      border-radius: 12px;
+      background: #eef8f6;
+      color: #176b5a;
+      font-weight: 600;
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    
+
+    
+
+    
+
+    
+
+    /* =========================================================
+       SIDEBAR SCROLL
+    ========================================================= */
+
+    .sidebar {
+      overflow-y: auto;
+      overflow-x: hidden;
+      max-height: 100vh;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .sky-view-wrapper {
+        padding: 8px 16px 30px;
+      }
+
+      .sky-view-container {
+        padding: 22px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      #skyPlot {
+        max-width: 560px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      html,
+      body {
+        overflow-y: auto;
+      }
+
+      .sky-view-wrapper {
+        padding: 5px 10px 25px;
+      }
+
+      .sky-view-container {
+        padding: 16px;
+      }
+
+      .panel {
+        padding: 16px 14px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .sky-plot-menubar {
+        flex-direction: column;
+      }
+
+      .sky-plot-canvas {
+        padding: 15px 5px;
+      }
+
+      #skyPlot {
+        width: 100%;
+        min-height: 300px;
+      }
+
+      
+
+      
+
+      .bottom-navigation {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  

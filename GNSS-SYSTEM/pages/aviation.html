@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aviation Graphs | GNSS Toolkit</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/pages/aviation.css">
+  <link rel="stylesheet" href="../assets/css/rx-log.css">
+  <script src="../assets/js/core/rx-logger.js"></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-mark">GNSS</div>
+      <div><strong>GNSS Toolkit</strong><small>Performance Monitor</small></div>
+    </div>
+    <nav class="sidebar-nav">
+      <a class="nav-item" href="../index.html"><span>⌂</span>Home</a>
+      <a class="nav-item" href="configuration.html"><span>⚙</span>Configuration Setting</a>
+      <a class="nav-item" href="position.html"><span>◎</span>Position Window</a>
+      <a class="nav-item" href="sky-view.html"><span>◉</span>Sky View</a>
+      <a class="nav-item" href="dop.html"><span>▥</span>Dilution of Precision</a>
+      <a class="nav-item" href="plan-view.html"><span>⌖</span>Plan View</a>
+      <a class="nav-item" href="signal-tracking.html"><span>⌁</span>Signal Tracking</a>
+      <a class="nav-item" href="integrity.html"><span>◫</span>Integrity Graphs</a>
+      <a class="nav-item active" href="aviation.html"><span>✈</span>Aviation Graphs</a>
+    </nav>
+ 
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+      <div>
+        <div class="breadcrumb">GNSS / Aviation Graphs</div>
+        <h1>Aviation Graphs</h1>
+      </div>
+      <!-- <button class="exit-btn" onclick="handleExit()">Exit</button> -->
+    </header>
+
+    <div class="page-content">
+      <div class="back-row">
+        
+       
+      </div>
+
+      <div class="page-title">
+        <h2>Monitor aviation-related GNSS performance graphs.</h2>
+       
+      </div>
+
+      <div class="panel">
+        <div class="aviation-wrapper" id="analyzerContainer">
+          
+          <!-- Top Analyzer Window Header -->
+          <div class="analyzer-window-bar">
+            <div>✈ GNSS PERFORMANCE & INTEGRITY ANALYZER</div>
+            <div class="window-icons">
+              <span>📷</span><span>📹</span><span>⚙</span><span>📡</span><span>🔔</span><span>✔</span>
+            </div>
+            <div class="window-controls">
+              <span class="win-btn">—</span>
+              <span class="win-btn">▢</span>
+              <span class="win-btn">✕</span>
+            </div>
+          </div>
+
+          <!-- Log File and Action Bar -->
+          <div class="analyzer-action-bar">
+            <div class="file-input-display">
+              <span>📄</span>
+              <span id="activeLogFileName">2025-06-25_15-50-43_rx_log.txt</span>
+            </div>
+            <button class="btn-browse" onclick="triggerBrowse()">Browse...</button>
+            <button class="btn-run" onclick="runAnalysis()">
+              <span>▶</span> Run Analysis
+            </button>
+            <input type="file" id="filePickerInput" style="display:none;" onchange="handleFileSelected(event)">
+          </div>
+
+          <!-- KPI Summary Cards -->
+          <div class="kpi-row">
+            <div class="kpi-card">
+              <div class="kpi-label">Horizontal Accuracy</div>
+              <div class="kpi-val green" id="hAccVal">5.741 m</div>
+              <div class="kpi-sub">95th Percentile HPE</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Vertical Accuracy</div>
+              <div class="kpi-val blue" id="vAccVal">43.990 m</div>
+              <div class="kpi-sub">Datum-safe Height 95%</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">System Availability</div>
+              <div class="kpi-val green" id="availVal">100.00 %</div>
+              <div class="kpi-sub">Under active HAL/VAL</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Max Observed HPL</div>
+              <div class="kpi-val blue" id="hplVal">0.143 m</div>
+              <div class="kpi-sub">Horiz. Protection Level</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Max Observed VPL</div>
+              <div class="kpi-val purple" id="vplVal">0.229 m</div>
+              <div class="kpi-sub">Vert. Protection Level</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">GST Integrity Status</div>
+              <div class="kpi-val blue" id="gstVal">YES</div>
+              <div class="kpi-sub">Noise Statistics Stream</div>
+            </div>
+          </div>
+
+          <!-- Main Workspace (Subpanel + 6 Grid Canvas Graphs) -->
+          <div class="analyzer-workspace">
+            
+            <!-- Left Subpanel Controls -->
+            <div class="analyzer-subpanel">
+              <div class="subpanel-box">
+                <div class="subpanel-box-title">Profiles</div>
+                <div class="profile-list">
+                  <button class="profile-btn" onclick="selectProfile('EN_ROUTE', this)">
+                    <span>En Route</span><small>3704m</small>
+                  </button>
+                  <button class="profile-btn" onclick="selectProfile('TERMINAL', this)">
+                    <span>Terminal</span><small>1852m</small>
+                  </button>
+                  <button class="profile-btn" onclick="selectProfile('NPA', this)">
+                    <span>NPA</span><small>556m</small>
+                  </button>
+                  <button class="profile-btn active" onclick="selectProfile('APV_I', this)">
+                    <span>APV-I</span><small>40m | 50m</small>
+                  </button>
+                  <button class="profile-btn" onclick="selectProfile('LPV_200', this)">
+                    <span>LPV-200</span><small>35m</small>
+                  </button>
+                </div>
+              </div>
+
+              <div class="subpanel-box">
+                <div class="subpanel-box-title">Controls</div>
+                <div class="ctrl-buttons">
+                  <button class="ctrl-btn" onclick="toggleTheme()">
+                    <span>◑</span> <span id="themeToggleText">Dark Mode</span>
+                  </button>
+                  <div style="display:flex; gap:6px;">
+                    <button class="ctrl-btn" style="flex:1" onclick="zoomGraphs()">🔍 Zoom</button>
+                    <button class="ctrl-btn" style="flex:1" onclick="resetGraphs()">↺ Reset</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="subpanel-box">
+                <div class="subpanel-box-title">Status</div>
+                <div class="status-badge">
+                  <span class="status-dot"></span> Analysis Complete
+                </div>
+                <div class="epoch-stats">
+                  <div><strong>EPOCHS:</strong> <span style="float:right;">25,305</span></div>
+                  <div>GGA: 25,305 <span style="float:right;">GST: 25,303</span></div>
+                  <div style="margin-top:6px; font-size:8.5px; color:var(--av-text-dim);">
+                    Ref: 24.946332°, 67.130147°<br>
+                    Updated: 23:58:18
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 6 Graph Cards -->
+            <div class="analyzer-grid">
+              
+              <!-- Graph 1: GNSS Fix Quality -->
+              <div class="graph-card">
+                <div class="graph-header">
+                  <span class="graph-title">1. GNSS Fix Quality</span>
+                  <span style="font-size:10px; color:var(--av-text-dim);">⛶</span>
+                </div>
+                <div class="graph-canvas-container">
+                  <canvas id="cvsFixQuality"></canvas>
+                </div>
+              </div>
+
+              <!-- Graph 2: Stanford Integrity Diagram -->
+              <div class="graph-card">
+                <div class="graph-header">
+                  <span class="graph-title">2. Stanford Integrity Diagram</span>
+                  <div class="graph-tags">
+                    <span class="pill-tag pill-hazard">Hazard (HPL&lt;HPE)</span>
+                    <span class="pill-tag pill-safe">Safe Zone</span>
+                    <span class="pill-tag pill-density">Density</span>
+                  </div>
+                </div>
+                <div class="graph-canvas-container">
+                  <canvas id="cvsStanford"></canvas>
+                </div>
+              </div>
+
+              <!-- Graph 3: Spatial Error Distribution -->
+              <div class="graph-card">
+                <div class="graph-header">
+                  <span class="graph-title">3. Spatial Error Distribution</span>
+                  <span class="pill-tag pill-bound">95% Bound (5.741 m)</span>
+                </div>
+                <div class="graph-canvas-container">
+                  <canvas id="cvsSpatial"></canvas>
+                </div>
+              </div>
+
+              <!-- Graph 4: Protection Levels vs Limits -->
+              <div class="graph-card">
+                <div class="graph-header">
+                  <span class="graph-title">4. Protection Levels vs Limits</span>
+                  <div class="graph-tags">
+                    <span style="font-size:9px; color:#2563eb; font-weight:700;">— HPL</span>
+                    <span style="font-size:9px; color:#059669; font-weight:700;">— VPL</span>
+                  </div>
+                </div>
+                <div class="graph-canvas-container">
+                  <canvas id="cvsProtLevels"></canvas>
+                </div>
+              </div>
+
+              <!-- Graph 5: Availability Timeline -->
+              <div class="graph-card">
+                <div class="graph-header">
+                  <span class="graph-title">5. Availability Timeline</span>
+                  <div class="graph-tags">
+                    <span class="pill-tag pill-avail">Available (100.0%)</span>
+                    <span class="pill-tag pill-unavail">Unavailable</span>
+                  </div>
+                </div>
+                <div class="graph-canvas-container">
+                  <canvas id="cvsAvailability"></canvas>
+                </div>
+              </div>
+
+              <!-- Graph 6: Continuity Timeline -->
+              <div class="graph-card">
+                <div class="graph-header">
+                  <span class="graph-title">6. Continuity Timeline</span>
+                  <span class="pill-tag pill-bound">0 Outages</span>
+                </div>
+                <div class="graph-canvas-container">
+                  <canvas id="cvsContinuity"></canvas>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="bottom-navigation">
+
+            <a
+                class="bottom-nav-btn"
+                href="../index.html">
+
+                Home
+
+            </a>
+
+
+            <button
+                class="bottom-nav-btn"
+                type="button"
+                onclick="history.back()">
+
+                Back
+
+            </button>
+
+        </div>
+    </div>
+
+    <footer class="app-footer" id="appFooter">
+
+        <button type="button" class="rx-toggle" id="rxToggle"
+                aria-controls="rxPanel" aria-expanded="false"
+                title="Open Rx • Logging • Error console (Alt+L)">
+          <span class="rx-led" aria-hidden="true"></span>
+          <span class="rx-toggle-label">Rx • Logging • Error</span>
+          <span class="rx-counters" aria-hidden="true">
+            <span class="rx-chip rx-chip-rx">RX <b data-rx-count="rx">0</b></span>
+            <span class="rx-chip rx-chip-log">LOG <b data-rx-count="log">0</b></span>
+            <span class="rx-chip rx-chip-warn">WARN <b data-rx-count="warn">0</b></span>
+            <span class="rx-chip rx-chip-err">ERR <b data-rx-count="err">0</b></span>
+          </span>
+          <span class="rx-caret" aria-hidden="true">&#9650;</span>
+        </button>
+
+        <span class="app-footer-copy">Copyright @SUP</span>
+
+        <span class="app-footer-name">GPMS Performance Monitoring System</span>
+
+      </footer>
+  </main>
+</div>
+
+<script src="../assets/js/core/app.js"></script>
+<script src="../assets/js/pages/aviation.js"></script>
+</body>
+</html>

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Signal Tracking Status | GPMS</title>
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/pages/signal-tracking.css">
+  <link rel="stylesheet" href="../assets/css/rx-log.css">
+  <script src="../assets/js/core/rx-logger.js"></script>
+
+    <!-- =====================================================
+         GRAPH STYLES (new - all classes prefixed "sg-")
+         ===================================================== -->
+
+</head>
+
+
+
+<body>
+
+<div class="app-shell">
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-mark">
+                GPMS
+            </div>
+
+            <div>
+
+                <strong>GPMS</strong>
+
+                <small>
+                    Performance Monitor
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- SIDEBAR NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+            <a
+                class="nav-item"
+                href="../index.html">
+
+                <span>⌂</span>
+
+                <label>
+                    Home
+                </label>
+
+            </a>
+
+
+            <a
+                class="nav-item"
+                href="configuration.html">
+
+                <span>⚙</span>
+
+                <label>
+                    Configuration Setting
+                </label>
+
+            </a>
+
+
+            <a
+                class="nav-item"
+                href="position.html">
+
+                <span>◎</span>
+
+                <label>
+                    Position Window
+                </label>
+
+            </a>
+
+
+            <a
+                class="nav-item"
+                href="sky-view.html">
+
+                <span>◉</span>
+
+                <label>
+                    Sky View
+                </label>
+
+            </a>
+
+
+            <a
+                class="nav-item"
+                href="dop.html">
+
+                <span>▥</span>
+
+                <label>
+                    Dilution of Precision
+                </label>
+
+            </a>
+
+
+            <a
+                class="nav-item"
+                href="plan-view.html">
+
+                <span>⌖</span>
+
+                <label>
+                    Plan View
+                </label>
+
+            </a>
+
+
+            <a
+                class="nav-item active"
+                href="signal-tracking.html">
+
+                <span>⌁</span>
+
+                <label>
+                    Signal Tracking
+                </label>
+
+            </a>
+
+
+            <a
+                class="nav-item"
+                href="integrity.html">
+
+                <span>◫</span>
+
+                <label>
+                    Integrity Graphs
+                </label>
+
+            </a>
+
+
+            <a
+                class="nav-item"
+                href="aviation.html">
+
+                <span>✈</span>
+
+                <label>
+                    Aviation Graphs
+                </label>
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-footer"></div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <button
+                class="menu-btn"
+                onclick="toggleSidebar()"
+                aria-label="Open navigation">
+
+                ☰
+
+            </button>
+
+
+            <div class="topbar-title">
+
+                <div class="breadcrumb">
+                    GPMS / SIGNAL TRACKING STATUS
+                </div>
+
+                <h1>
+                    Signal Tracking Status
+                </h1>
+
+            </div>
+
+
+            <!-- <button
+                class="exit-btn"
+                onclick="handleExit()">
+
+                Exit
+
+            </button> -->
+
+        </header>
+
+
+
+        <!-- =================================================
+             PAGE CONTENT
+             ================================================= -->
+
+        <div class="page-content">
+
+
+            <!-- PAGE TITLE -->
+
+            <div class="page-title">
+
+               <h2> Monitor signal quality and tracking parameters.
+                </h2>
+
+              
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SIGNAL TRACKING
+                 ================================================= -->
+
+            <div class="tracking-container">
+
+
+                <!-- TRACKING PANEL -->
+
+                <div class="tracking-panel">
+
+                    <h3>
+                        Signal Tracking Status
+                    </h3>
+
+
+                    <p class="tracking-description">
+                        Select a tracking parameter to view its
+                        current GNSS status.
+                    </p>
+
+
+
+                    <!-- RADIO OPTIONS -->
+
+                    <div class="tracking-options">
+
+
+                        <!-- CNR -->
+
+                        <div class="tracking-option">
+
+                            <input
+                                type="radio"
+                                name="trackingParameter"
+                                id="cnr"
+                                value="cnr"
+                                checked
+                                onchange="changeTrackingParameter('cnr')">
+
+
+                            <label for="cnr">
+
+                                <span class="radio-circle"></span>
+
+                                Carrier/Noise Ratio
+
+                            </label>
+
+                        </div>
+
+
+
+                        <!-- PSEUDO RANGE -->
+
+                        <div class="tracking-option">
+
+                            <input
+                                type="radio"
+                                name="trackingParameter"
+                                id="pseudo"
+                                value="pseudo"
+                                onchange="changeTrackingParameter('pseudo')">
+
+
+                            <label for="pseudo">
+
+                                <span class="radio-circle"></span>
+
+                                Pseudo Range
+
+                            </label>
+
+                        </div>
+
+
+
+                        <!-- CARRIER PHASE -->
+
+                        <div class="tracking-option">
+
+                            <input
+                                type="radio"
+                                name="trackingParameter"
+                                id="carrier"
+                                value="carrier"
+                                onchange="changeTrackingParameter('carrier')">
+
+
+                            <label for="carrier">
+
+                                <span class="radio-circle"></span>
+
+                                Carrier Phase
+
+                            </label>
+
+                        </div>
+
+
+
+                        <!-- DOPPLER -->
+
+                        <div class="tracking-option">
+
+                            <input
+                                type="radio"
+                                name="trackingParameter"
+                                id="doppler"
+                                value="doppler"
+                                onchange="changeTrackingParameter('doppler')">
+
+
+                            <label for="doppler">
+
+                                <span class="radio-circle"></span>
+
+                                Doppler
+
+                            </label>
+
+                        </div>
+
+
+
+                        <!-- LOCK TIME -->
+
+                        <div class="tracking-option">
+
+                            <input
+                                type="radio"
+                                name="trackingParameter"
+                                id="lock"
+                                value="lock"
+                                onchange="changeTrackingParameter('lock')">
+
+
+                            <label for="lock">
+
+                                <span class="radio-circle"></span>
+
+                                Lock Time
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ACTIVE PARAMETER -->
+
+                    <div class="tracking-display">
+
+
+                        <div class="tracking-current">
+
+                            <span class="tracking-current-label">
+                                Selected Parameter
+                            </span>
+
+
+                            <span
+                                class="tracking-current-name"
+                                id="parameterName">
+
+                                Carrier/Noise Ratio
+
+                            </span>
+
+
+                            <span class="tracking-status">
+
+                                <span
+                                    class="tracking-status-dot">
+                                </span>
+
+                                Signal Tracking Active
+
+                            </span>
+
+                        </div>
+
+
+
+                        <div class="tracking-value">
+
+                            <strong id="parameterValue">
+                                42.6
+                            </strong>
+
+                            <small id="parameterUnit">
+                                dB-Hz
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     CONSTELLATION COVERAGE
+                     ================================================= -->
+
+                <div class="panel constellation-panel">
+
+                    <h3>
+                        Constellation Coverage
+                    </h3>
+
+
+                    <p>
+                        Currently monitored GNSS constellations.
+                    </p>
+
+
+                    <div class="chips">
+
+                        <span class="chip">
+                            GPS
+                        </span>
+
+                        <span class="chip">
+                            GLONASS
+                        </span>
+
+                        <span class="chip">
+                            BeiDou
+                        </span>
+
+                        <span class="chip">
+                            Galileo
+                        </span>
+
+                        <span class="chip">
+                            QZSS
+                        </span>
+
+                        <span class="chip">
+                            SBAS
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 NEW: SIGNAL GRAPH (changes with the radio button)
+                 ================================================= -->
+
+            <div class="sg-section">
+
+                <div class="sg-header">
+
+                    <h3 id="sgHeading">
+                        Carrier/Noise Ratio Graph
+                    </h3>
+
+                    <span class="sg-summary" id="sgSummary"></span>
+
+                </div>
+
+
+                <!-- CONSTELLATION TABS -->
+
+                <div class="sg-tabs" id="sgTabs" role="tablist"></div>
+
+
+                <!-- WHITE GRAPH BOX -->
+
+                <div class="sg-chart-box">
+
+                    <div class="sg-chart-title" id="sgChartTitle"></div>
+
+                    <div class="sg-svg-wrap" id="sgChart"></div>
+
+                    <div class="sg-legend" id="sgLegend"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             BOTTOM HOME / BACK BUTTONS
+             ===================================================== -->
+
+         <div class="bottom-navigation">
+
+            <a
+              class="bottom-nav-btn"
+              href="../index.html">
+
+              Home
+
+            </a>
+
+
+            <button
+              class="bottom-nav-btn"
+              onclick="history.back()">
+
+              Back
+
+            </button>
+
+          </div>
+
+
+
+        <!-- =====================================================
+             FOOTER
+             ===================================================== -->
+
+        <footer class="app-footer" id="appFooter">
+
+        <button type="button" class="rx-toggle" id="rxToggle"
+                aria-controls="rxPanel" aria-expanded="false"
+                title="Open Rx • Logging • Error console (Alt+L)">
+          <span class="rx-led" aria-hidden="true"></span>
+          <span class="rx-toggle-label">Rx • Logging • Error</span>
+          <span class="rx-counters" aria-hidden="true">
+            <span class="rx-chip rx-chip-rx">RX <b data-rx-count="rx">0</b></span>
+            <span class="rx-chip rx-chip-log">LOG <b data-rx-count="log">0</b></span>
+            <span class="rx-chip rx-chip-warn">WARN <b data-rx-count="warn">0</b></span>
+            <span class="rx-chip rx-chip-err">ERR <b data-rx-count="err">0</b></span>
+          </span>
+          <span class="rx-caret" aria-hidden="true">&#9650;</span>
+        </button>
+
+        <span class="app-footer-copy">Copyright @SUP</span>
+
+        <span class="app-footer-name">GPMS Performance Monitoring System</span>
+
+      </footer>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================================================
+     MAIN JAVASCRIPT
+     ========================================================= -->
+
+<script src="../assets/js/core/app.js"></script>
+
+
+
+<!-- =========================================================
+     SIGNAL TRACKING JAVASCRIPT
+     ========================================================= -->
+
+<script src="../assets/js/pages/signal-tracking.js"></script>
+
+
+
+<!-- =========================================================
+     NEW: GRAPH RENDERING (plain SVG, no external libraries)
+     ========================================================= -->
+
+
+
+
+</body>
+
+</html>
